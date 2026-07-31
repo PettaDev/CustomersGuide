@@ -81,6 +81,7 @@ export function LogAssistant() {
           messages: nextMessages.map(({ role, content: messageContent }) => ({ role, content: messageContent })),
           context: {
             language: session.language,
+            country: session.countryCode,
             brand: brand?.id ?? null,
             method: session.method,
             stepTitle: step ? t(step.titleKey) : null,

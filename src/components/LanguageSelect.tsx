@@ -1,8 +1,9 @@
 import { Check, ChevronDown, Languages } from 'lucide-react'
-import { useEffect, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useApp } from '../context/AppContext'
-import { languageOptions } from '../data/languages'
+import { countryMap } from '../data/countries'
+import { languageMap } from '../data/languages'
 import type { LanguageCode } from '../types'
 
 export function LanguageSelect({ compact = false }: { compact?: boolean }) {
@@ -13,8 +14,10 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
   const triggerRef = useRef<HTMLButtonElement>(null)
   const optionRefs = useRef<Array<HTMLButtonElement | null>>([])
   const menuId = useId()
-  const selectedCode = session.language ?? 'en'
-  const selected = languageOptions.find((language) => language.code === selectedCode) ?? languageOptions[0]
+  const selectedCountry = countryMap[session.countryCode] ?? countryMap.BR
+  const options = useMemo(() => selectedCountry.languages.map((code) => languageMap[code]), [selectedCountry])
+  const selectedCode = session.language ?? options[0].code
+  const selected = options.find((language) => language.code === selectedCode) ?? options[0]
 
   useEffect(() => {
     if (!open) return
@@ -28,7 +31,7 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
       triggerRef.current?.focus()
     }
     const frame = window.requestAnimationFrame(() => {
-      const selectedIndex = languageOptions.findIndex((language) => language.code === selectedCode)
+      const selectedIndex = options.findIndex((language) => language.code === selectedCode)
       optionRefs.current[selectedIndex]?.focus()
     })
 
@@ -39,7 +42,7 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
       document.removeEventListener('pointerdown', closeOnOutsideClick)
       document.removeEventListener('keydown', closeOnEscape)
     }
-  }, [open, selectedCode])
+  }, [open, options, selectedCode])
 
   const chooseLanguage = (code: LanguageCode) => {
     setLanguage(code)
@@ -51,13 +54,13 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
     if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) return
     event.preventDefault()
     const currentIndex = optionRefs.current.findIndex((option) => option === document.activeElement)
-    const lastIndex = languageOptions.length - 1
+    const lastIndex = options.length - 1
     const nextIndex = event.key === 'Home'
       ? 0
       : event.key === 'End'
         ? lastIndex
         : event.key === 'ArrowDown'
-          ? (currentIndex + 1) % languageOptions.length
+          ? (currentIndex + 1) % options.length
           : (currentIndex <= 0 ? lastIndex : currentIndex - 1)
     optionRefs.current[nextIndex]?.focus()
   }
@@ -86,7 +89,7 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
       {open ? (
         <div id={menuId} className="language-picker-menu" role="listbox" aria-label={t('actions.changeLanguage')} onKeyDown={moveOptionFocus}>
           <div className="language-picker-title">{t('actions.changeLanguage')}</div>
-          {languageOptions.map((language, index) => {
+          {options.map((language, index) => {
             const active = language.code === selected.code
             return (
               <button
@@ -98,7 +101,7 @@ export function LanguageSelect({ compact = false }: { compact?: boolean }) {
                 className={active ? 'is-active' : ''}
                 onClick={() => chooseLanguage(language.code)}
               >
-                <img src={language.flag} alt="" aria-hidden="true" />
+                <span className="language-picker-symbol" aria-hidden="true">{language.symbol}</span>
                 <span><strong>{language.native}</strong><small>{language.shortCode}</small></span>
                 <Check size={16} aria-hidden="true" />
               </button>

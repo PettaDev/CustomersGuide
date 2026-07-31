@@ -1,4 +1,5 @@
-export type LanguageCode = 'en' | 'pt-BR' | 'es-419' | 'zh-CN'
+export type LanguageCode = 'en' | 'pt-BR' | 'es-419' | 'zh-CN' | 'fr' | 'ar' | 'ru'
+export type CountryRegion = 'africa' | 'asia' | 'southAmerica' | 'northAmerica' | 'europe'
 export type CaptureMethod = 'pc' | 'mobile'
 export type WizardStage = 'language' | 'brand' | 'method' | 'guide'
 
@@ -96,6 +97,7 @@ export interface Guide {
 
 export interface PersistedSession {
   language: LanguageCode | null
+  countryCode: string
   brandId: string | null
   method: CaptureMethod | null
   stage: WizardStage

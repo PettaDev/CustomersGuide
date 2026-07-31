@@ -3,7 +3,7 @@ import { APICallError, generateText, type ModelMessage } from 'ai'
 
 const SUPPORT_URL = 'https://wa.me/5511986543471'
 const MODEL = process.env.GEMINI_MODEL ?? 'gemini-3.5-flash-lite'
-const ALLOWED_LANGUAGES = new Set(['en', 'pt-BR', 'es-419', 'zh-CN'])
+const ALLOWED_LANGUAGES = new Set(['en', 'pt-BR', 'es-419', 'zh-CN', 'fr', 'ar', 'ru'])
 const ALLOWED_BRANDS = new Set(['infinix', 'tecno', 'itel'])
 const ALLOWED_METHODS = new Set(['pc', 'mobile'])
 
@@ -14,6 +14,7 @@ interface ChatMessage {
 
 interface ChatContext {
   language?: string
+  country?: string | null
   brand?: string | null
   method?: string | null
   stepTitle?: string | null
@@ -48,7 +49,7 @@ Troubleshooting:
 - Missing log folders: enable all four log categories, clear all including modem boot logs, and repeat the capture from the beginning.
 
 Behavior rules:
-- Reply in the requested language: English, Brazilian Portuguese, Latin American Spanish, or Simplified Chinese.
+- Reply in the requested language: English, Brazilian Portuguese, Latin American Spanish, Simplified Chinese, French, Modern Standard Arabic, or Russian.
 - Use the current brand, method, and guide step when supplied. Do not repeat the entire guide when a focused next action is enough.
 - Commands must be exact and placed on their own line. Never ask for passwords, pairing codes, personal files, IMEI, phone numbers, or API keys.
 - Do not claim to inspect the user's device or files. Do not advise root access, bootloader changes, destructive resets, or unrelated repairs.
@@ -73,6 +74,7 @@ const normalizeMessages = (messages: ChatMessage[] | undefined): ModelMessage[] 
 
 const normalizeContext = (context: ChatContext | undefined) => ({
   language: ALLOWED_LANGUAGES.has(context?.language ?? '') ? context?.language : 'en',
+  country: typeof context?.country === 'string' && /^[A-Z]{2}$/.test(context.country) ? context.country : null,
   brand: ALLOWED_BRANDS.has(context?.brand ?? '') ? context?.brand : null,
   method: ALLOWED_METHODS.has(context?.method ?? '') ? context?.method : null,
   stepTitle: typeof context?.stepTitle === 'string' ? context.stepTitle.slice(0, 180) : null,
@@ -112,7 +114,7 @@ export default {
     }
 
     const context = normalizeContext(body.context)
-    const contextNote = `Current UI context: language=${context.language}; brand=${context.brand ?? 'not selected'}; method=${context.method ?? 'not selected'}; step=${context.stepTitle ?? 'not in guide'}; step description=${context.stepDescription ?? 'none'}.`
+    const contextNote = `Current UI context: language=${context.language}; country=${context.country ?? 'not selected'}; brand=${context.brand ?? 'not selected'}; method=${context.method ?? 'not selected'}; step=${context.stepTitle ?? 'not in guide'}; step description=${context.stepDescription ?? 'none'}.`
 
     try {
       const { text } = await generateText({

@@ -17,7 +17,8 @@ Collecting useful device logs is easy to get wrong: a missing log category, an e
 The project currently supports:
 
 - **Brands:** Infinix (XOS), TECNO (HiOS), and itel.
-- **Languages:** English, Brazilian Portuguese, Latin American Spanish, and Simplified Chinese.
+- **Markets:** 106 named country markets consolidated from the official TECNO, Infinix, and itel market selectors, with Brazil featured first.
+- **Languages:** English, Brazilian Portuguese, Latin American Spanish, Simplified Chinese, French, Modern Standard Arabic, and Russian.
 - **PC workflow:** USB debugging and Android Platform Tools (`adb`).
 - **No-computer workflow:** Termux and Wireless debugging on Android 11 or later.
 - **Evidence capture:** DebugLoggerUI, screen recording, log export, and final package verification.
@@ -26,6 +27,7 @@ The project currently supports:
 ## Key Features
 
 - Brand-aware themes and instructions selected at runtime.
+- Searchable country selection with local support-language recommendations and explicit alternatives for multilingual markets.
 - Responsive wizard designed for desktop, tablet, and mobile screens.
 - Persistent progress, language, and theme preferences through `localStorage`.
 - Dark and light themes with keyboard-accessible navigation.
@@ -158,10 +160,13 @@ The application discovers most content at build time:
 
 - Add or edit brand workflows in `src/guides/<brand>/pc.json` and `mobile.json`.
 - Add translations in `src/locales/<locale>/translation.json` and register the locale in the i18n and language configuration.
+- Add or update market coverage and language mappings in `src/data/countries.ts`; keep Brazil as the featured first entry.
 - Add visual identity values in `src/themes/<brand>.ts`.
 - Store media under the appropriate `public` subdirectory and reference it with a relative public URL.
 
-Keep translated keys aligned across all four locale files. New procedural steps should include a clear outcome, exact command syntax when applicable, and an evidence checkpoint.
+Keep translated keys aligned across all seven locale files. New procedural steps should include a clear outcome, exact command syntax when applicable, and an evidence checkpoint.
+
+The public corporate site states that Transsion operates in more than 100 countries and regions but does not publish a single exhaustive country table. The application therefore uses the union of the named markets in the official [TECNO](https://www.tecno-mobile.com/), [Infinix](https://www.infinixmobility.com/), and [itel](https://www.itel-life.com/products/brand/about-us) selectors, plus China as Transsion's headquarters market. This catalog is intentionally data-driven so an internal master list can be applied without changing the interface.
 
 ## Deployment
 

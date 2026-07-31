@@ -1,13 +1,15 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { countryMap } from '../data/countries'
 import i18n from '../i18n'
 import { neutralTheme, themeMap, themes } from '../themes'
 import type { BrandTheme, CaptureMethod, LanguageCode, PersistedSession, WizardStage } from '../types'
 
-const STORAGE_KEY = 'transsion-guide-session-v1'
+const STORAGE_KEY = 'transsion-guide-session-v2'
 const THEME_KEY = 'transsion-guide-color-mode'
 
 const defaultSession: PersistedSession = {
-  language: null,
+  language: 'pt-BR',
+  countryCode: 'BR',
   brandId: null,
   method: null,
   stage: 'language',
@@ -22,7 +24,9 @@ interface AppContextValue {
   activeTheme: BrandTheme
   availableThemes: BrandTheme[]
   darkMode: boolean
+  setCountry: (countryCode: string) => void
   setLanguage: (language: LanguageCode) => void
+  continueFromLocale: () => void
   selectBrand: (brandId: string) => void
   selectMethod: (method: CaptureMethod) => void
   setStage: (stage: WizardStage) => void
@@ -53,6 +57,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session))
     if (session.language) {
       document.documentElement.lang = session.language
+      document.documentElement.dir = session.language === 'ar' ? 'rtl' : 'ltr'
       void i18n.changeLanguage(session.language)
     }
   }, [session])
@@ -78,14 +83,19 @@ export function AppProvider({ children }: { children: ReactNode }) {
     activeTheme,
     availableThemes: themes,
     darkMode,
-    setLanguage: (language) => setSession((current) => ({ ...current, language, stage: current.stage === 'language' ? 'brand' : current.stage })),
+    setCountry: (countryCode) => setSession((current) => {
+      const selectedCountry = countryMap[countryCode] ?? countryMap.BR
+      return { ...current, countryCode: selectedCountry.code, language: selectedCountry.languages[0], stage: 'language' }
+    }),
+    setLanguage: (language) => setSession((current) => ({ ...current, language })),
+    continueFromLocale: () => setSession((current) => ({ ...current, stage: current.language ? 'brand' : 'language' })),
     selectBrand: (brandId) => setSession((current) => ({ ...current, brandId, method: null, stage: 'method', guideStep: 0, reachedStep: 0, completed: [] })),
     selectMethod: (method) => setSession((current) => ({ ...current, method, stage: 'guide', guideStep: 0, reachedStep: 0, completed: [] })),
     setStage: (stage) => setSession((current) => ({ ...current, stage })),
     setGuideStep: (guideStep) => setSession((current) => ({ ...current, guideStep, reachedStep: Math.max(current.reachedStep, guideStep) })),
     markCompleted: (stepId) => setSession((current) => ({ ...current, completed: current.completed.includes(stepId) ? current.completed : [...current.completed, stepId] })),
     toggleDarkMode: () => setDarkMode((current) => !current),
-    resetSession: () => setSession({ ...defaultSession, language: session.language }),
+    resetSession: () => setSession({ ...defaultSession, countryCode: session.countryCode, language: session.language }),
   }), [activeTheme, brand, darkMode, session])
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
