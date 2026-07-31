@@ -79,5 +79,6 @@
     }
   },
   "guides": { "infinix": { "pc": { "title": "Infinix 电脑日志收集" }, "mobile": { "title": "Infinix 无电脑日志收集" } }, "tecno": { "pc": { "title": "TECNO 电脑日志收集" }, "mobile": { "title": "TECNO 无电脑日志收集" } }, "itel": { "pc": { "title": "itel 电脑日志收集" }, "mobile": { "title": "itel 无电脑日志收集" } } },
+  "assistant": { "title": "日志采集助手", "status": "专注日志的 AI", "open": "打开日志采集助手", "welcome": "您好！我可以跟随当前步骤、解释命令，并帮助解决日志采集问题。您遇到了什么情况？", "context": "当前步骤：{{step}}", "reset": "清空对话", "thinking": "正在分析问题", "placeholder": "请描述屏幕、错误或困难…", "send": "发送消息", "disclaimer": "请勿发送密码、配对码或个人数据。", "support": "联系技术支持", "suggestions": { "adb": "ADB 无法识别我的设备", "clean": "如何清除所有日志？", "mobile": "我正在不使用电脑的情况下操作" }, "errors": { "rateLimited": "短时间内发送的问题过多。请稍候几秒后重试。", "unavailable": "助手暂时不可用。您可以继续查看指南或联系技术支持。" } },
   "completion": { "eyebrow": "指南已完成", "title": "您的支持包已准备好", "description": "您已完成所有步骤。将文件发送给支持团队前，请检查敏感信息。", "summary": "{{brand}} · {{method}}", "another": "开始另一个指南", "support": "打开 {{brand}} 支持" }
 }
