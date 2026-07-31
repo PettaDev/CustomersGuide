@@ -14,6 +14,7 @@
     ] },
     { "id": "termux-setup", "titleKey": "guide.mobile.termux.title", "descriptionKey": "guide.mobile.termux.description", "blocks": [
       { "type": "checklist", "itemKeys": ["guide.mobile.termux.items.install", "guide.mobile.termux.items.open", "guide.mobile.termux.items.wait"] },
+      { "type": "image", "src": "./screenshots/termux/termux-play-store.png", "altKey": "guide.images.termuxPlayStore.alt", "captionKey": "guide.images.termuxPlayStore.caption" },
       { "type": "code", "code": "pkg install android-tools", "labelKey": "guide.labels.command" },
       { "type": "info", "titleKey": "guide.mobile.termux.info.title", "descriptionKey": "guide.mobile.termux.info.description" }
     ] },

@@ -31,6 +31,7 @@
       "developer": { "alt": "Configurações do celular mostrando as opções do desenvolvedor" },
       "bugReport": { "alt": "Notificação de progresso do relatório de bugs do Android" },
       "developerBuild": { "alt": "Tela Meu telefone com Número da versão destacado", "caption": "Toque sete vezes em Número da versão até aparecer a confirmação de que você é um desenvolvedor." },
+      "termuxPlayStore": { "alt": "Página do aplicativo Termux na Google Play, de Fredrik Fornwall", "caption": "Na Google Play, confirme o nome Termux e o desenvolvedor Fredrik Fornwall antes de instalar." },
       "usbDebugging": { "alt": "Opções do desenvolvedor com Depuração USB e confirmação destacadas", "caption": "No fluxo com computador, ative a Depuração USB e confirme em OK." },
       "dialCode": { "alt": "Discador do telefone com o código de acesso ao EngineerMode", "caption": "Digite *#9646633# no aplicativo Telefone; o EngineerMode abrirá automaticamente." },
       "engineerMode": { "alt": "EngineerMode na aba Log and Debugging com DebugLoggerUI", "caption": "Abra Log and Debugging e toque em DebugLoggerUI." },

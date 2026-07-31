@@ -31,6 +31,7 @@
       "developer": { "alt": "显示开发者选项的手机设置" },
       "bugReport": { "alt": "Android 错误报告进度通知" },
       "developerBuild": { "alt": "我的手机页面中突出显示版本号", "caption": "连续点击版本号七次，直到手机确认已开启开发者模式。" },
+      "termuxPlayStore": { "alt": "Google Play 上由 Fredrik Fornwall 发布的 Termux 应用页面", "caption": "安装前，请在 Google Play 中确认应用名称为 Termux，开发者为 Fredrik Fornwall。" },
       "usbDebugging": { "alt": "开发者选项中的 USB 调试及安全确认", "caption": "在电脑流程中开启 USB 调试，然后点击确定接受安全提示。" },
       "dialCode": { "alt": "电话拨号界面中输入 DebugLoggerUI 服务代码", "caption": "在电话应用中输入 *#9646633#；EngineerMode 会自动打开。" },
       "engineerMode": { "alt": "EngineerMode 中的 Log and Debugging 和 DebugLoggerUI", "caption": "打开 Log and Debugging，然后选择 DebugLoggerUI。" },
