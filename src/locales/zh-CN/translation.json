@@ -18,20 +18,23 @@
       "menu": { "title": "菜单名称可能不同", "description": "具体文字会因机型和系统版本略有不同。必要时请使用设置中的搜索功能。" },
       "authorization": { "title": "查看手机屏幕", "description": "出现提示时允许 USB 调试，并可选择信任此电脑。列表随后应显示“device”状态。" },
       "terminal": { "title": "保持窗口打开", "description": "记录日志时命令会持续运行。在复现问题之前不要关闭终端。" },
+      "modem": { "title": "调制解调器或 SIM 问题", "description": "如果问题与调制解调器有关，也请清除 Modem 日志，并仅在开始采集后插入 SIM 卡。" },
+      "destination": { "title": "选择目标文件夹", "description": "请将 SEU_USUARIO 替换为您的 Windows 账户名，或将引号内的整个路径替换为您要保存日志的文件夹。" },
       "privacy": { "title": "保护个人信息", "description": "日志和录屏可能包含姓名、通知或账户信息。分享前请检查文件。" },
-      "saved": { "title": "文件已准备好", "description": "请将日志、录屏和问题发生时间的简短说明放在一起。" }
+      "saved": { "title": "日志已复制", "description": "等待 ADB 提示完成，然后确认所选目标位置中已创建 debuglogger 文件夹。" }
     },
-    "images": { "adbFolder": { "alt": "Platform-Tools 文件夹结构示例", "caption": "解压后的文件夹应包含 adb、fastboot 和支持库。" }, "developer": { "alt": "显示开发者选项的手机设置" }, "bugReport": { "alt": "Android 错误报告进度通知" } },
+    "images": { "adbFolder": { "alt": "Platform-Tools 文件夹结构示例", "caption": "解压后的文件夹应包含 adb、fastboot 和支持库。" }, "platformTools": { "alt": "Windows 文件资源管理器中打开的 platform-tools 文件夹", "caption": "打开解压后的 platform-tools 文件夹，然后点击地址栏。" }, "cmd": { "alt": "直接在 platform-tools 文件夹中打开的命令提示符", "caption": "在地址栏中输入 CMD 并按 Enter。提示符路径应以 platform-tools> 结尾。" }, "developer": { "alt": "显示开发者选项的手机设置" }, "bugReport": { "alt": "Android 错误报告进度通知" } },
     "steps": {
       "download": { "title": "准备电脑", "description": "收集日志前，请下载 Android Debug Bridge（ADB）。它能让电脑与设备安全通信。" },
-      "extract": { "title": "解压 Platform-Tools 文件夹", "description": "继续前，将 ZIP 解压到容易找到的文件夹。", "items": { "download": "等待 ZIP 下载完成。", "extract": "右键文件并选择全部解压。", "open": "打开解压后的 platform-tools 文件夹。", "keep": "在后续步骤中保持该文件夹打开。" } },
+      "extract": { "title": "解压并打开命令提示符", "description": "解压 ZIP，然后直接在 platform-tools 中打开 CMD。", "items": { "download": "等待 ZIP 下载完成。", "extract": "右键文件并选择全部解压。", "open": "打开解压后的 platform-tools 文件夹。", "address": "点击文件资源管理器地址栏，输入 CMD，然后按 Enter。", "cmd": "确认命令提示符已打开，且路径以 platform-tools> 结尾。" } },
       "developer": { "title": "启用开发者选项", "infinix": "在 Infinix 上，打开设置 › 我的手机，连续点击版本号七次，直到 XOS 确认开发者模式。", "tecno": "在 TECNO 上，打开设置 › 我的手机，连续点击版本号七次，直到 HiOS 确认开发者模式。", "itel": "在 itel 上，打开设置 › 我的手机，连续点击版本号七次，直到开发者模式启用。" },
       "usb": { "title": "开启 USB 调试", "description": "打开开发者选项，允许电脑通过 ADB 与手机通信。", "items": { "open": "进入设置 › 系统 › 开发者选项。", "enable": "开启 USB 调试。", "confirm": "阅读并接受安全确认。" } },
       "connect": { "title": "连接并验证设备", "description": "使用支持数据传输的 USB 线，在 platform-tools 中打开终端并运行验证命令。" },
-      "capture": { "title": "开始日志和屏幕录制", "description": "清除旧消息，开始录屏，并将新的 Android 日志保存为文本文件。" },
-      "reproduce": { "title": "复现问题", "description": "采集期间，准确重复导致问题的操作。记下大致时间和预期结果。" },
-      "export": { "title": "停止并复制证据", "description": "在 logcat 终端按 Ctrl+C，然后运行以下命令结束录屏并将其复制到电脑。" },
-      "finish": { "title": "检查并发送", "description": "确认支持包包含分析所需的全部内容。", "items": { "log": "文本日志可打开并包含最近的时间戳。", "video": "屏幕录制可以正常播放。", "context": "附上问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭 USB 调试。" } }
+      "capture": { "title": "启动 DebugLoggerUI 和屏幕录制", "description": "准备设备日志记录器，删除旧记录，并在复现问题前启动两项采集。", "items": { "dial": "在电话应用中拨打 *#9646633# 以打开日志菜单。", "open": "打开 Log and Debugging › DebugLoggerUI。", "clear": "点击右上角的垃圾桶图标并清除现有记录。", "play": "点击 DebugLoggerUI 中的 Play 开始收集日志。", "record": "同时在手机上开始屏幕录制。" } },
+      "reproduce": { "title": "复现问题并停止采集", "description": "在两项采集均运行时，准确复现问题。", "items": { "actions": "重复导致错误、卡死或异常的操作。", "workaround": "如果您知道临时解决方法，也请在视频中演示。", "stop": "复现后，停止屏幕录制并在 DebugLoggerUI 中点击 STOP。" } },
+      "export": { "title": "使用 ADB 复制 debuglogger 文件夹", "description": "在 platform-tools 中打开的 CMD 里运行以下命令，将日志复制到电脑。" },
+      "video": { "title": "复制屏幕录制", "description": "从手机手动复制 MP4，并与 debuglogger 文件夹放在一起。", "items": { "mode": "在手机上将 USB 模式更改为文件传输。", "path": "在 Windows 文件资源管理器中打开设备内部存储，然后进入 Movies › ScreenRecord。", "copy": "找到复现问题时录制的 MP4，并将其复制到 debuglogger 文件夹所在位置。" } },
+      "finish": { "title": "检查并发送", "description": "确认支持包包含分析所需的全部内容。", "items": { "log": "复制的 debuglogger 文件夹包含刚刚收集的文件。", "video": "屏幕录制可以正常播放。", "context": "附上问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭 USB 调试。" } }
     },
     "mobile": {
       "prepare": { "title": "准备手机", "description": "错误报告可能很大，生成需要几分钟。", "items": { "battery": "保持至少 30% 电量。", "storage": "预留至少 1 GB 可用存储空间。", "close": "关闭包含敏感信息的应用。" } },
