@@ -22,7 +22,7 @@
       { "type": "info", "titleKey": "guide.notices.authorization.title", "descriptionKey": "guide.notices.authorization.description" }
     ] },
     { "id": "start-capture", "titleKey": "guide.steps.capture.title", "descriptionKey": "guide.steps.capture.description", "blocks": [
-      { "type": "checklist", "itemKeys": ["guide.steps.capture.items.dial", "guide.steps.capture.items.open", "guide.steps.capture.items.clear", "guide.steps.capture.items.play", "guide.steps.capture.items.record"] },
+      { "type": "checklist", "itemKeys": ["guide.steps.capture.items.dial", "guide.steps.capture.items.open", "guide.steps.capture.items.clear", "guide.steps.capture.items.clearModem", "guide.steps.capture.items.play", "guide.steps.capture.items.record"] },
       { "type": "info", "titleKey": "guide.notices.modem.title", "descriptionKey": "guide.notices.modem.description" }
     ] },
     { "id": "reproduce", "titleKey": "guide.steps.reproduce.title", "descriptionKey": "guide.steps.reproduce.description", "blocks": [
