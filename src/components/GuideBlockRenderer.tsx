@@ -85,7 +85,14 @@ export function GuideBlockRenderer({ block, acknowledged, onAcknowledged, onOpen
   }
 
   if (block.type === 'video') {
-    return <div className="video-frame"><iframe src={block.url} title={t(block.titleKey)} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div>
+    const title = t(block.titleKey)
+    return (
+      <div className={'video-frame' + (block.portrait ? ' is-portrait' : '')}>
+        {block.src
+          ? <video src={block.src} title={title} aria-label={title} controls playsInline preload="metadata" />
+          : <iframe src={block.url} title={title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />}
+      </div>
+    )
   }
 
   const noticeIcon = block.type === 'warning' ? <AlertTriangle size={20} /> : block.type === 'success' ? <CheckCircle2 size={20} /> : <Info size={20} />

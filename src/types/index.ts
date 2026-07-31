@@ -65,8 +65,10 @@ export interface GalleryBlock {
 
 export interface VideoBlock {
   type: 'video'
-  url: string
   titleKey: string
+  url?: string
+  src?: string
+  portrait?: boolean
 }
 
 export interface ChecklistBlock {

@@ -43,7 +43,12 @@
       "loggerRecording": { "alt": "DebugLoggerUI 显示四种日志正在录制", "caption": "确认四种日志均显示正在录制后，再复现问题。" },
       "loggerStop": { "alt": "DebugLoggerUI 中突出显示停止按钮", "caption": "复现问题后点击方形停止按钮。" },
       "loggerStopping": { "alt": "DebugLoggerUI 正在停止日志", "caption": "等待正在停止日志的提示完成，再分享或复制文件。" },
-      "loggerShare": { "alt": "DebugLoggerUI 中显示分享图标", "caption": "在无电脑流程中，点击三个相连圆点的图标来分享日志。" }
+      "loggerShare": { "alt": "DebugLoggerUI 中显示分享图标", "caption": "在无电脑流程中，点击三个相连圆点的图标来分享日志。" },
+      "downloadFiles": { "alt": "Download 中的 debuglogger 文件夹及采集到的日志类别", "caption": "Download › debuglogger 应包含 connsyslog、mdlog1、mdlog1_config、mobilelog、netlog 和 file_tree.txt。" }
+    },
+    "videos": {
+      "termux": { "title": "Termux 安装、配对、连接和复制的完整流程" },
+      "verifyFiles": { "title": "如何在 Download 中找到并检查 debuglogger 文件夹" }
     },
     "steps": {
       "download": { "title": "准备电脑", "description": "收集日志前，请下载 Android Debug Bridge（ADB）。它能让电脑与设备安全通信。" },
@@ -62,9 +67,14 @@
       "finish": { "title": "检查并发送", "description": "确认支持包包含分析所需的全部内容。", "items": { "log": "复制的 debuglogger 文件夹包含刚刚收集的文件。", "video": "屏幕录制可以正常播放。", "context": "附上问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭 USB 调试。" } }
     },
     "mobile": {
-      "prepare": { "title": "准备手机", "description": "DebugLoggerUI 采集可能生成较大的文件，并需要几分钟。", "items": { "battery": "保持至少 30% 电量。", "storage": "预留至少 1 GB 可用存储空间。", "close": "关闭包含敏感信息的应用。" } },
-      "share": { "title": "无需电脑分享日志", "description": "停止日志后，使用 DebugLoggerUI 自带的分享功能保存或发送证据。", "items": { "icon": "点击三个相连圆点的分享图标。", "destination": "选择安全的保存位置或获批的分享应用。", "send": "将日志、屏幕录制和问题描述一起发送。" }, "info": { "title": "文件较大", "description": "如果应用拒绝该文件，请将其保存到获批的公司网盘，并分享受限链接。" } },
-      "finish": { "description": "确认支持人员已收到日志、屏幕录制和简短的问题描述。", "items": { "logs": "DebugLoggerUI 文件已保存或分享。", "video": "屏幕录制已附上且可以正常播放。", "context": "已提供问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭无线调试。" }, "success": "无需电脑采集的证据包已准备好，可供技术分析。" }
+      "prepare": { "title": "准备手机", "description": "无电脑采集使用 Termux，并通过手机的 Wi-Fi 网络运行 ADB。", "items": { "android": "确认设备运行 Android 11 或更高版本。", "battery": "保持至少 30% 电量。", "storage": "预留至少 1 GB 可用存储空间。", "wifi": "连接到可信的 Wi-Fi 网络，并在整个流程中保持连接。" }, "compatibility": { "title": "兼容性要求", "description": "无线调试需要 Android 11 或更高版本。设备还必须支持分屏或浮动窗口；无需 root。" } },
+      "termux": { "title": "安装 Termux 和 ADB 工具", "description": "准备在手机本机完成配对、连接和日志复制的终端。", "items": { "install": "从 Google Play 或 F-Droid 安装 Termux。", "open": "打开 Termux 并运行下面的命令。", "wait": "出现提示时确认安装，并等待 android-tools 软件包安装完成。" }, "info": { "title": "无需 root", "description": "android-tools 软件包提供所需的 adb 命令，此流程无需 root 权限。" } },
+      "split": { "title": "将设置和 Termux 保持在同一屏幕", "description": "使用分屏或浮动窗口，让无线调试和 Termux 同时保持活动。", "items": { "settings": "打开设置 › 开发者选项 › 无线调试，并停留在此页面。", "termux": "将 Termux 放在设置旁边，或以浮动窗口打开。", "keep": "在配对和连接完成前，保持两个应用都可见。" }, "warning": { "title": "此步骤为必需", "description": "配对代码和端口是临时的。如果离开无线调试页面，它们可能失效，您需要重新生成凭据。" } },
+      "pair": { "title": "使用代码配对 ADB", "description": "在无线调试中生成临时凭据，并立即在 Termux 中使用。", "items": { "open": "点击使用配对码配对设备。", "values": "记下显示的 IP 地址、配对端口和六位配对码。", "replace": "在下面的命令中，用屏幕上的值替换 IP、PAIRING_PORT 和 PAIRING_CODE。", "success": "按 Enter，并确认 Termux 显示 Successfully paired。" }, "info": { "title": "使用配对端口", "description": "此对话框中的端口仅用于 adb pair。它通常与主页面上的连接端口不同。" } },
+      "connect": { "title": "将 ADB 连接到手机", "description": "配对后，使用无线调试主页面上的地址建立连接。", "items": { "close": "关闭配对码对话框，并在主页面找到 IP 地址和端口。", "port": "使用此连接端口，而不是临时配对端口。", "replace": "在下面的命令中替换 IP 和 ADB_PORT，然后按 Enter。", "success": "只有当 Termux 显示 connected to IP:PORT 后才继续。" } },
+      "pull": { "title": "将日志复制到 Download", "description": "停止 DebugLoggerUI 后，返回 Termux，将采集文件夹复制到内部存储。", "items": { "return": "保持 ADB 连接，并返回 Termux。", "run": "完全按照下面显示的内容运行命令。", "wait": "等待显示已复制文件数量的最终消息；传输过程中不要关闭 Termux。" }, "success": { "title": "复制目标", "description": "该命令会在手机上创建内部存储 › Download › debuglogger 文件夹。" } },
+      "verify": { "title": "检查 debuglogger 文件夹", "description": "发送前使用文件应用确认采集内容已完整复制。", "items": { "open": "打开文件 › 内部存储 › Download › debuglogger。", "folders": "确认存在 connsyslog、mdlog1、mdlog1_config、mobilelog 和 netlog 文件夹。", "tree": "同时确认 file_tree.txt 文件存在。" }, "info": { "title": "最低预期内容", "description": "如果缺少任何类别，请再次检查 DebugLoggerUI 的四项日志设置，并重新采集后再发送。" } },
+      "finish": { "description": "压缩 debuglogger 文件夹，并与屏幕录制和简短的问题描述一起发送给支持团队。", "items": { "logs": "debuglogger 文件夹已检查并压缩，可以发送。", "video": "屏幕录制已附上且可以正常播放。", "context": "已提供问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭无线调试。" }, "success": "通过 Termux 采集的证据包已准备好，可供技术分析。" }
     }
   },
   "guides": { "infinix": { "pc": { "title": "Infinix 电脑日志收集" }, "mobile": { "title": "Infinix 无电脑日志收集" } }, "tecno": { "pc": { "title": "TECNO 电脑日志收集" }, "mobile": { "title": "TECNO 无电脑日志收集" } }, "itel": { "pc": { "title": "itel 电脑日志收集" }, "mobile": { "title": "itel 无电脑日志收集" } } },
