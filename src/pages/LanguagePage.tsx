@@ -2,14 +2,8 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Check, Globe2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useApp } from '../context/AppContext'
-import type { LanguageCode } from '../types'
 import { PageIntro } from '../components/PageIntro'
-
-const languages: { code: LanguageCode; flag: string; native: string }[] = [
-  { code: 'en', flag: './flags/us.svg', native: 'English' },
-  { code: 'pt-BR', flag: './flags/br.svg', native: 'Português (Brasil)' },
-  { code: 'zh-CN', flag: './flags/cn.svg', native: '简体中文' },
-]
+import { languageOptions } from '../data/languages'
 
 export function LanguagePage() {
   const { t } = useTranslation()
@@ -21,7 +15,7 @@ export function LanguagePage() {
         <div className="welcome-mark"><Globe2 size={18} /><span>{t('app.badge')}</span></div>
         <PageIntro eyebrow={t('languages.choose.eyebrow')} title={t('languages.choose.title')} description={t('languages.choose.description')} />
         <div className="language-grid">
-          {languages.map((language, index) => {
+          {languageOptions.map((language, index) => {
             const selected = session.language === language.code
             return (
               <motion.button

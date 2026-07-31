@@ -1,4 +1,4 @@
-export type LanguageCode = 'en' | 'pt-BR' | 'zh-CN'
+export type LanguageCode = 'en' | 'pt-BR' | 'es-419' | 'zh-CN'
 export type CaptureMethod = 'pc' | 'mobile'
 export type WizardStage = 'language' | 'brand' | 'method' | 'guide'
 

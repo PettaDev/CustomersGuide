@@ -1,6 +1,6 @@
 {
   "app": { "title": "Android 日志指南", "subtitle": "传音设备的引导式诊断", "badge": "传音支持工具", "version": "版本 1.0.0", "copyright": "© 2026 传音控股。支持体验。", "contact": "技术支持" },
-  "languages": { "choose": { "eyebrow": "欢迎", "title": "选择您的语言", "description": "请选择使用语言。您可以随时更改。" }, "en": "English", "pt-BR": "Português (Brasil)", "zh-CN": "简体中文" },
+  "languages": { "choose": { "eyebrow": "欢迎", "title": "选择您的语言", "description": "请选择使用语言。您可以随时更改。" }, "en": "English", "pt-BR": "Português (Brasil)", "es-419": "Español (Latinoamérica)", "zh-CN": "简体中文" },
   "wizard": { "language": "语言", "brand": "设备", "method": "方式", "guide": "指南", "stepOf": "第 {{current}} 步，共 {{total}} 步", "percent": "已完成 {{value}}%", "complete": "已完成" },
   "brands": { "choose": { "eyebrow": "您的设备", "title": "您使用的是哪种设备？", "description": "选择品牌以加载对应的支持流程和视觉体验。" }, "infinix": { "tagline": "面向 XOS 设备的前沿支持" }, "tecno": { "tagline": "面向 HiOS 设备的精准诊断" }, "itel": { "tagline": "为每台 itel 设备提供简单支持" } },
   "methods": { "choose": { "eyebrow": "采集设置", "title": "您想如何收集日志？", "description": "我们会根据您现有的工具调整每项说明。" }, "pc": { "title": "使用电脑", "description": "我有 Windows 电脑和 USB 数据线。", "badge": "信息最完整" }, "mobile": { "title": "仅使用手机", "description": "我现在无法使用电脑。", "badge": "无需数据线" } },

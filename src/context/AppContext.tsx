@@ -51,7 +51,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(session))
-    if (session.language) void i18n.changeLanguage(session.language)
+    if (session.language) {
+      document.documentElement.lang = session.language
+      void i18n.changeLanguage(session.language)
+    }
   }, [session])
 
   useEffect(() => {

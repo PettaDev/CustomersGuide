@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 60" role="img" aria-label="Español Latinoamérica">
+  <defs>
+    <linearGradient id="latam" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#18a999"/>
+      <stop offset="1" stop-color="#3156d3"/>
+    </linearGradient>
+  </defs>
+  <rect width="84" height="60" rx="9" fill="url(#latam)"/>
+  <circle cx="22" cy="30" r="12" fill="none" stroke="#fff" stroke-width="2.5"/>
+  <path d="M10 30h24M22 18c4 4 6 8 6 12s-2 8-6 12c-4-4-6-8-6-12s2-8 6-12Z" fill="none" stroke="#fff" stroke-width="2"/>
+  <text x="44" y="38" fill="#fff" font-family="Arial, sans-serif" font-size="22" font-weight="700">ES</text>
+</svg>
