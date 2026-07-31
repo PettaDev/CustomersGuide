@@ -1,8 +1,8 @@
-import { createHash } from 'node:crypto'
+import { google } from '@ai-sdk/google'
 import { APICallError, generateText, type ModelMessage } from 'ai'
 
 const SUPPORT_URL = 'https://wa.me/5511986543471'
-const MODEL = process.env.AI_MODEL ?? 'openai/gpt-5.6-luna'
+const MODEL = process.env.GEMINI_MODEL ?? 'gemini-2.5-flash-lite'
 const ALLOWED_LANGUAGES = new Set(['en', 'pt-BR', 'es-419', 'zh-CN'])
 const ALLOWED_BRANDS = new Set(['infinix', 'tecno', 'itel'])
 const ALLOWED_METHODS = new Set(['pc', 'mobile'])
@@ -79,12 +79,6 @@ const normalizeContext = (context: ChatContext | undefined) => ({
   stepDescription: typeof context?.stepDescription === 'string' ? context.stepDescription.slice(0, 500) : null,
 })
 
-const privacyId = (request: Request) => {
-  const forwarded = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
-  const agent = request.headers.get('user-agent') ?? 'unknown'
-  return `guide_${createHash('sha256').update(`${forwarded ?? 'unknown'}:${agent}`).digest('hex').slice(0, 24)}`
-}
-
 export default {
   async fetch(request: Request) {
     if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405, { Allow: 'POST' })
@@ -113,35 +107,25 @@ export default {
       total + (typeof message.content === 'string' ? message.content.length : 0), 0)
     if (totalCharacters > 8_000) return json({ error: 'conversation_too_large' }, 413)
 
+    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+      return json({ error: 'assistant_unavailable' }, 503)
+    }
+
     const context = normalizeContext(body.context)
-    const userId = privacyId(request)
     const contextNote = `Current UI context: language=${context.language}; brand=${context.brand ?? 'not selected'}; method=${context.method ?? 'not selected'}; step=${context.stepTitle ?? 'not in guide'}; step description=${context.stepDescription ?? 'none'}.`
 
     try {
       const { text } = await generateText({
-        model: MODEL,
+        model: google(MODEL),
         system: `${KNOWLEDGE}\n${contextNote}`,
         messages,
         maxOutputTokens: 700,
-        providerOptions: {
-          gateway: {
-            user: userId,
-            tags: ['feature:log-guide-assistant', `language:${context.language}`],
-          },
-          openai: {
-            safetyIdentifier: userId,
-            store: false,
-            reasoningEffort: 'low',
-            textVerbosity: 'low',
-          },
-        },
       })
 
       return json({ reply: text.trim() })
     } catch (error) {
       if (APICallError.isInstance(error)) {
         if (error.statusCode === 429) return json({ error: 'rate_limited' }, 429, { 'Retry-After': '30' })
-        if (error.statusCode === 402) return json({ error: 'budget_unavailable' }, 503)
       }
       console.error('Log guide assistant failed', error)
       return json({ error: 'assistant_unavailable' }, 503)

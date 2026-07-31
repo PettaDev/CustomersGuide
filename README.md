@@ -52,12 +52,12 @@ flowchart LR
     U["Customer"] --> W["React guide and wizard"]
     W <--> C["JSON guides, locales, themes, and media"]
     W --> A["Vercel Function: /api/chat"]
-    A --> G["Vercel AI Gateway"]
-    G --> M["OpenAI model"]
+    A --> G["Google Gemini API"]
+    G --> M["Gemini 2.5 Flash-Lite"]
     W --> S["WhatsApp technical support"]
 ```
 
-The guide is configuration-driven. Brand themes and guide JSON files are discovered during the Vite build, while the AI assistant is isolated behind a server-side Vercel Function so provider credentials are never shipped to the browser.
+The guide is configuration-driven. Brand themes and guide JSON files are discovered during the Vite build, while the AI assistant is isolated behind a server-side Vercel Function so the Gemini API key is never shipped to the browser.
 
 ## Technology Stack
 
@@ -68,7 +68,7 @@ The guide is configuration-driven. Brand themes and guide JSON files are discove
 | Styling | Tailwind CSS, PostCSS, project-level CSS |
 | Internationalization | i18next, react-i18next |
 | Navigation | React Router with `HashRouter` |
-| AI | Vercel AI SDK, Vercel AI Gateway, OpenAI |
+| AI | Vercel AI SDK, Google Generative AI, Gemini 2.5 Flash-Lite |
 | Hosting | Vercel; optional static deployment through GitHub Pages |
 
 ## Project Structure
@@ -139,18 +139,18 @@ The standard Vite development server does not emulate the Vercel Function. Use `
 
 ## AI Assistant Configuration
 
-The assistant is implemented in `api/chat.ts` and calls the model only from the server. On Vercel, the AI Gateway uses the deployment's OIDC identity, so no model-provider API key is exposed in client-side code or committed to the repository.
+The assistant is implemented in `api/chat.ts` and calls the Google Gemini API only from the server. The API key is read from a server-side Vercel environment variable and is never exposed in client-side code or committed to the repository.
 
 To enable it for a new Vercel project:
 
-1. Import or link the repository in Vercel.
-2. Enable AI Gateway for the Vercel account or team.
-3. Complete the required billing verification and configure a usage budget.
+1. Create a Gemini API key in [Google AI Studio](https://aistudio.google.com/apikey).
+2. Import or link the repository in Vercel.
+3. Add `GOOGLE_GENERATIVE_AI_API_KEY` as a sensitive environment variable for Production and Preview.
 4. Deploy the project normally.
 
-The default model is `openai/gpt-5.6-luna`. Set the optional server-side `AI_MODEL` environment variable to use another model supported by the Gateway.
+The default model is the stable `gemini-2.5-flash-lite`, which is available in the Gemini API free tier with usage limits. Set the optional server-side `GEMINI_MODEL` environment variable to use another compatible Gemini model.
 
-The endpoint applies same-site checks, request-size limits, bounded conversation history, input normalization, non-persistent model requests, and a privacy-preserving hashed safety identifier. It is deliberately scoped to the documented log-capture process and escalates unsupported cases to technical support.
+The endpoint applies same-site checks, request-size limits, bounded conversation history, and input normalization. It is deliberately scoped to the documented log-capture process and escalates unsupported cases to technical support. Google may use free-tier request content to improve its products, so the assistant must not request logs, credentials, IMEI numbers, pairing codes, or other personal information.
 
 ## Content and Localization
 
@@ -172,7 +172,7 @@ Vercel is the recommended target because it serves both the Vite application and
 1. Import the GitHub repository into Vercel.
 2. Confirm the framework preset is Vite.
 3. Keep `pnpm build` as the build command and `dist` as the output directory.
-4. Enable AI Gateway if the assistant is required.
+4. Add the server-side Gemini API key if the assistant is required.
 5. Deploy or merge into the configured production branch.
 
 ### Private repository behavior
