@@ -287,9 +287,9 @@ a { color: inherit; text-decoration: none; }
 .assistant-launcher { position: relative; width: 58px; height: 58px; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--brand-primary) 70%, #fff); border-radius: 50%; color: #fff; background: linear-gradient(145deg, var(--brand-primary), var(--brand-primary-strong)); box-shadow: 0 18px 46px var(--brand-glow), 0 8px 24px rgba(0,0,0,.22); cursor: pointer; pointer-events: auto; transition: transform .2s ease, box-shadow .2s ease; }
 .assistant-launcher:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 22px 55px var(--brand-glow), 0 10px 28px rgba(0,0,0,.26); }
 .assistant-launcher > span { position: absolute; right: 2px; top: 2px; width: 13px; height: 13px; border: 3px solid var(--surface); border-radius: 50%; background: #22c55e; }
-.assistant-panel { width: min(390px, calc(100vw - 32px)); height: min(620px, calc(100vh - 110px)); display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto auto auto; overflow: hidden; border: 1px solid color-mix(in srgb, var(--brand-primary) 34%, var(--border-strong)); border-radius: 22px; background: color-mix(in srgb, var(--surface) 97%, var(--brand-primary) 3%); box-shadow: 0 32px 90px rgba(0,0,0,.34); pointer-events: auto; animation: assistant-panel-in .22s ease-out; }
+.assistant-panel { width: min(390px, calc(100vw - 32px)); height: min(620px, calc(100vh - 110px)); display: grid; grid-template-areas: "header" "context" "messages" "suggestions" "form" "disclaimer"; grid-template-rows: auto auto minmax(0, 1fr) auto auto auto; overflow: hidden; border: 1px solid color-mix(in srgb, var(--brand-primary) 34%, var(--border-strong)); border-radius: 22px; background: color-mix(in srgb, var(--surface) 97%, var(--brand-primary) 3%); box-shadow: 0 32px 90px rgba(0,0,0,.34); pointer-events: auto; animation: assistant-panel-in .22s ease-out; }
 @keyframes assistant-panel-in { from { opacity: 0; transform: translateY(12px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
-.assistant-header { min-height: 72px; padding: 13px 14px; display: grid; grid-template-columns: 42px minmax(0, 1fr) 34px 34px; align-items: center; gap: 8px; color: #fff; background: linear-gradient(135deg, var(--brand-secondary), color-mix(in srgb, var(--brand-secondary) 74%, var(--brand-primary))); }
+.assistant-header { grid-area: header; min-height: 72px; padding: 13px 14px; display: grid; grid-template-columns: 42px minmax(0, 1fr) 34px 34px; align-items: center; gap: 8px; color: #fff; background: linear-gradient(135deg, var(--brand-secondary), color-mix(in srgb, var(--brand-secondary) 74%, var(--brand-primary))); }
 .assistant-avatar { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 13px; background: rgba(255,255,255,.1); }
 .assistant-header > div { min-width: 0; display: flex; flex-direction: column; gap: 5px; }
 .assistant-header strong { overflow: hidden; font-size: .85rem; white-space: nowrap; text-overflow: ellipsis; }
@@ -297,9 +297,9 @@ a { color: inherit; text-decoration: none; }
 .assistant-header small span { width: 6px; height: 6px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 3px rgba(52,211,153,.13); }
 .assistant-header button { width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 10px; color: rgba(255,255,255,.72); background: transparent; cursor: pointer; }
 .assistant-header button:hover { color: #fff; background: rgba(255,255,255,.1); }
-.assistant-context { min-height: 38px; padding: 8px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); color: var(--brand-primary-strong); background: color-mix(in srgb, var(--brand-primary) 8%, var(--surface)); font-size: .65rem; font-weight: 650; }
+.assistant-context { grid-area: context; min-height: 38px; padding: 8px 15px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); color: var(--brand-primary-strong); background: color-mix(in srgb, var(--brand-primary) 8%, var(--surface)); font-size: .65rem; font-weight: 650; }
 .assistant-context span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.assistant-messages { min-height: 0; padding: 18px 14px; display: flex; flex-direction: column; gap: 13px; overflow-y: auto; overscroll-behavior: contain; }
+.assistant-messages { grid-area: messages; min-height: 0; padding: 18px 14px; display: flex; flex-direction: column; gap: 13px; overflow-y: auto; overscroll-behavior: contain; }
 .assistant-message { display: flex; align-items: flex-end; gap: 8px; }
 .assistant-message > span { width: 27px; height: 27px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--brand-primary) 25%, var(--border)); border-radius: 9px; color: var(--brand-primary-strong); background: color-mix(in srgb, var(--brand-primary) 9%, var(--surface)); }
 .assistant-message p { max-width: 82%; margin: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 14px 14px 14px 4px; color: var(--text-soft); background: var(--surface); font-size: .75rem; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
@@ -312,16 +312,16 @@ a { color: inherit; text-decoration: none; }
 .assistant-error { padding: 12px; border: 1px solid color-mix(in srgb, #ef4444 35%, var(--border)); border-radius: 13px; background: color-mix(in srgb, #ef4444 6%, var(--surface)); }
 .assistant-error p { margin: 0 0 9px; color: var(--text-soft); font-size: .7rem; line-height: 1.45; }
 .assistant-error a { display: inline-flex; align-items: center; gap: 6px; color: var(--brand-primary-strong); font-size: .69rem; font-weight: 750; }
-.assistant-suggestions { padding: 0 14px 12px; display: flex; flex-wrap: wrap; gap: 7px; }
-.assistant-suggestions button { padding: 7px 9px; border: 1px solid color-mix(in srgb, var(--brand-primary) 26%, var(--border)); border-radius: 999px; color: var(--text-soft); background: color-mix(in srgb, var(--brand-primary) 5%, var(--surface)); font-size: .63rem; cursor: pointer; }
+.assistant-suggestions { grid-area: suggestions; padding: 0 14px 12px; display: flex; align-items: flex-start; flex-wrap: wrap; gap: 7px; }
+.assistant-suggestions button { min-height: 31px; padding: 7px 9px; border: 1px solid color-mix(in srgb, var(--brand-primary) 26%, var(--border)); border-radius: 999px; color: var(--text-soft); background: color-mix(in srgb, var(--brand-primary) 5%, var(--surface)); font-size: .63rem; line-height: 1.35; cursor: pointer; }
 .assistant-suggestions button:hover { color: var(--brand-primary-strong); border-color: var(--brand-primary); }
-.assistant-form { margin: 0 12px; padding: 8px 8px 8px 12px; display: flex; align-items: flex-end; gap: 8px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
+.assistant-form { grid-area: form; margin: 0 12px; padding: 8px 8px 8px 12px; display: flex; align-items: flex-end; gap: 8px; border: 1px solid var(--border-strong); border-radius: 14px; background: var(--surface); }
 .assistant-form:focus-within { border-color: var(--brand-primary); box-shadow: 0 0 0 3px var(--brand-glow); }
 .assistant-form textarea { min-height: 34px; max-height: 92px; min-width: 0; flex: 1; padding: 7px 0 5px; resize: none; border: 0; outline: 0; color: var(--text); background: transparent; font: inherit; font-size: .73rem; line-height: 1.45; }
 .assistant-form textarea::placeholder { color: var(--text-muted); }
 .assistant-form button { width: 34px; height: 34px; flex: 0 0 auto; display: grid; place-items: center; border: 0; border-radius: 10px; color: #fff; background: var(--brand-primary); cursor: pointer; }
 .assistant-form button:disabled { opacity: .38; cursor: not-allowed; }
-.assistant-disclaimer { margin: 0; padding: 9px 14px 11px; color: var(--text-muted); font-size: .57rem; line-height: 1.4; text-align: center; }
+.assistant-disclaimer { grid-area: disclaimer; margin: 0; padding: 9px 14px 11px; color: var(--text-muted); font-size: .57rem; line-height: 1.4; text-align: center; }
 
 @media (max-width: 1024px) {
   .header-inner { padding: 0 20px; }
