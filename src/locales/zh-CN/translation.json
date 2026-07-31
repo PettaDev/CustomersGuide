@@ -1,0 +1,47 @@
+{
+  "app": { "title": "Android 日志指南", "subtitle": "传音设备的引导式诊断", "badge": "传音支持工具", "version": "版本 1.0.0", "copyright": "© 2026 传音控股。支持体验。", "contact": "技术支持" },
+  "languages": { "choose": { "eyebrow": "欢迎", "title": "选择您的语言", "description": "请选择使用语言。您可以随时更改。" }, "en": "English", "pt-BR": "Português (Brasil)", "zh-CN": "简体中文" },
+  "wizard": { "language": "语言", "brand": "设备", "method": "方式", "guide": "指南", "stepOf": "第 {{current}} 步，共 {{total}} 步", "percent": "已完成 {{value}}%", "complete": "已完成" },
+  "brands": { "choose": { "eyebrow": "您的设备", "title": "您使用的是哪种设备？", "description": "选择品牌以加载对应的支持流程和视觉体验。" }, "infinix": { "tagline": "面向 XOS 设备的前沿支持" }, "tecno": { "tagline": "面向 HiOS 设备的精准诊断" }, "itel": { "tagline": "为每台 itel 设备提供简单支持" } },
+  "methods": { "choose": { "eyebrow": "采集设置", "title": "您想如何收集日志？", "description": "我们会根据您现有的工具调整每项说明。" }, "pc": { "title": "使用电脑", "description": "我有 Windows 电脑和 USB 数据线。", "badge": "信息最完整" }, "mobile": { "title": "仅使用手机", "description": "我现在无法使用电脑。", "badge": "无需数据线" } },
+  "actions": { "continue": "继续", "back": "返回", "next": "下一步", "previous": "上一步", "finish": "完成指南", "copy": "复制", "copied": "已复制", "download": "下载 ADB", "releaseNotes": "版本说明", "restart": "重新开始", "resume": "继续指南", "home": "首页", "close": "关闭", "search": "搜索", "clearSearch": "清除搜索", "changeLanguage": "更改语言", "backToTop": "返回顶部", "openImage": "全屏打开图片" },
+  "header": { "darkMode": "使用深色模式", "lightMode": "使用浅色模式", "openMenu": "打开步骤", "brandLogo": "{{brand}} 标志" },
+  "resume": { "title": "欢迎回来", "description": "您上次的 {{brand}} 指南已保存到第 {{step}} 步。", "newSession": "选择其他流程" },
+  "search": { "title": "搜索本指南", "placeholder": "搜索步骤和说明…", "noResults": "没有与搜索匹配的步骤。", "resultCount": "{{count}} 个结果", "resultCount_other": "{{count}} 个结果" },
+  "guide": {
+    "preparation": "电脑准备", "estimated": "约 {{minutes}} 分钟", "allSteps": "指南步骤", "completed": "已完成", "current": "当前步骤", "upcoming": "待完成", "keyboardHint": "提示：使用 ← 和 → 在步骤间移动。",
+    "breadcrumb": { "home": "首页", "guide": "日志收集" },
+    "labels": { "command": "命令", "commands": "命令", "version": "版本", "size": "下载大小", "file": "文件", "checksum": "校验值" },
+    "blocks": { "adb": { "title": "Android SDK Platform-Tools", "description": "Google 官方 Windows 工具包，包含 ADB 和 Fastboot。", "acknowledgment": "我已下载 ADB 并可以访问 ZIP 文件。" } },
+    "notices": {
+      "official": { "title": "官方下载", "description": "此按钮指向 Google 的永久下载地址，始终提供当前版本的 Platform-Tools。" },
+      "menu": { "title": "菜单名称可能不同", "description": "具体文字会因机型和系统版本略有不同。必要时请使用设置中的搜索功能。" },
+      "authorization": { "title": "查看手机屏幕", "description": "出现提示时允许 USB 调试，并可选择信任此电脑。列表随后应显示“device”状态。" },
+      "terminal": { "title": "保持窗口打开", "description": "记录日志时命令会持续运行。在复现问题之前不要关闭终端。" },
+      "privacy": { "title": "保护个人信息", "description": "日志和录屏可能包含姓名、通知或账户信息。分享前请检查文件。" },
+      "saved": { "title": "文件已准备好", "description": "请将日志、录屏和问题发生时间的简短说明放在一起。" }
+    },
+    "images": { "adbFolder": { "alt": "Platform-Tools 文件夹结构示例", "caption": "解压后的文件夹应包含 adb、fastboot 和支持库。" }, "developer": { "alt": "显示开发者选项的手机设置" }, "bugReport": { "alt": "Android 错误报告进度通知" } },
+    "steps": {
+      "download": { "title": "准备电脑", "description": "收集日志前，请下载 Android Debug Bridge（ADB）。它能让电脑与设备安全通信。" },
+      "extract": { "title": "解压 Platform-Tools 文件夹", "description": "继续前，将 ZIP 解压到容易找到的文件夹。", "items": { "download": "等待 ZIP 下载完成。", "extract": "右键文件并选择全部解压。", "open": "打开解压后的 platform-tools 文件夹。", "keep": "在后续步骤中保持该文件夹打开。" } },
+      "developer": { "title": "启用开发者选项", "infinix": "在 Infinix 上，打开设置 › 我的手机，连续点击版本号七次，直到 XOS 确认开发者模式。", "tecno": "在 TECNO 上，打开设置 › 我的手机，连续点击版本号七次，直到 HiOS 确认开发者模式。", "itel": "在 itel 上，打开设置 › 我的手机，连续点击版本号七次，直到开发者模式启用。" },
+      "usb": { "title": "开启 USB 调试", "description": "打开开发者选项，允许电脑通过 ADB 与手机通信。", "items": { "open": "进入设置 › 系统 › 开发者选项。", "enable": "开启 USB 调试。", "confirm": "阅读并接受安全确认。" } },
+      "connect": { "title": "连接并验证设备", "description": "使用支持数据传输的 USB 线，在 platform-tools 中打开终端并运行验证命令。" },
+      "capture": { "title": "开始日志和屏幕录制", "description": "清除旧消息，开始录屏，并将新的 Android 日志保存为文本文件。" },
+      "reproduce": { "title": "复现问题", "description": "采集期间，准确重复导致问题的操作。记下大致时间和预期结果。" },
+      "export": { "title": "停止并复制证据", "description": "在 logcat 终端按 Ctrl+C，然后运行以下命令结束录屏并将其复制到电脑。" },
+      "finish": { "title": "检查并发送", "description": "确认支持包包含分析所需的全部内容。", "items": { "log": "文本日志可打开并包含最近的时间戳。", "video": "屏幕录制可以正常播放。", "context": "附上问题时间、操作步骤和预期结果。", "disable": "支持结束后关闭 USB 调试。" } }
+    },
+    "mobile": {
+      "prepare": { "title": "准备手机", "description": "错误报告可能很大，生成需要几分钟。", "items": { "battery": "保持至少 30% 电量。", "storage": "预留至少 1 GB 可用存储空间。", "close": "关闭包含敏感信息的应用。" } },
+      "report": { "title": "启动错误报告", "description": "在开发者选项中选择生成错误报告，并选择交互式或完整报告。", "items": { "open": "打开设置 › 系统 › 开发者选项。", "select": "点击生成错误报告并选择交互式报告。", "start": "确认开始收集诊断数据。" }, "info": { "title": "找不到该选项？", "description": "在设置中搜索“错误报告”。某些版本将其放在开发者选项中。" } },
+      "reproduce": { "description": "返回出现问题的应用，在 Android 收集报告时复现问题。避免打开无关的个人内容。" },
+      "wait": { "title": "等待报告完成", "description": "通知会显示收集进度。保持手机解锁，直到 Android 提示报告已准备好。" },
+      "share": { "title": "分享生成的报告", "description": "打开完成通知，选择分享，仅通过您信任的支持渠道发送 ZIP。", "info": { "title": "附件较大", "description": "如果邮件拒绝文件，请上传到获批的公司网盘并分享受限链接。" } },
+      "finish": { "description": "确认支持人员已收到报告和问题简述。", "success": "您的手机诊断包已准备好，可供技术分析。" }
+    }
+  },
+  "guides": { "infinix": { "pc": { "title": "Infinix 电脑日志收集" }, "mobile": { "title": "Infinix 手机错误报告" } }, "tecno": { "pc": { "title": "TECNO 电脑日志收集" }, "mobile": { "title": "TECNO 手机错误报告" } }, "itel": { "pc": { "title": "itel 电脑日志收集" }, "mobile": { "title": "itel 手机错误报告" } } },
+  "completion": { "eyebrow": "指南已完成", "title": "您的支持包已准备好", "description": "您已完成所有步骤。将文件发送给支持团队前，请检查敏感信息。", "summary": "{{brand}} · {{method}}", "another": "开始另一个指南", "support": "打开 {{brand}} 支持" }
+}

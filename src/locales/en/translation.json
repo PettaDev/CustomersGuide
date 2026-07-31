@@ -1,0 +1,69 @@
+{
+  "app": { "title": "Android Log Guide", "subtitle": "Guided diagnostics for Transsion devices", "badge": "Transsion support tools", "version": "Version 1.0.0", "copyright": "© 2026 Transsion Holdings. Support experience.", "contact": "Technical support" },
+  "languages": {
+    "choose": { "eyebrow": "Welcome", "title": "Choose your language", "description": "Select the language you want to use. You can change it at any time." },
+    "en": "English", "pt-BR": "Português (Brasil)", "zh-CN": "简体中文"
+  },
+  "wizard": { "language": "Language", "brand": "Device", "method": "Method", "guide": "Guide", "stepOf": "Step {{current}} of {{total}}", "percent": "{{value}}% complete", "complete": "Complete" },
+  "brands": {
+    "choose": { "eyebrow": "Your device", "title": "Which device are you using?", "description": "Choose the brand to load its support path and visual experience." },
+    "infinix": { "tagline": "Future-forward support for XOS devices" },
+    "tecno": { "tagline": "Precise diagnostics for HiOS devices" },
+    "itel": { "tagline": "Simple support for every itel device" }
+  },
+  "methods": {
+    "choose": { "eyebrow": "Collection setup", "title": "How would you like to collect the logs?", "description": "We will tailor each instruction to the tools you have available." },
+    "pc": { "title": "Using a computer", "description": "I have access to a Windows computer and a USB data cable.", "badge": "Most complete" },
+    "mobile": { "title": "Using only my phone", "description": "I do not have access to a computer right now.", "badge": "No cables" }
+  },
+  "actions": { "continue": "Continue", "back": "Back", "next": "Next step", "previous": "Previous", "finish": "Finish guide", "copy": "Copy", "copied": "Copied", "download": "Download ADB", "releaseNotes": "Release notes", "restart": "Start over", "resume": "Resume guide", "home": "Home", "close": "Close", "search": "Search", "clearSearch": "Clear search", "changeLanguage": "Change language", "backToTop": "Back to top", "openImage": "Open image fullscreen" },
+  "header": { "darkMode": "Use dark mode", "lightMode": "Use light mode", "openMenu": "Open steps", "brandLogo": "{{brand}} logo" },
+  "resume": { "title": "Welcome back", "description": "Your last {{brand}} guide is saved at step {{step}}.", "newSession": "Choose another path" },
+  "search": { "title": "Search this guide", "placeholder": "Search steps and instructions…", "noResults": "No steps match your search.", "resultCount": "{{count}} result", "resultCount_other": "{{count}} results" },
+  "guide": {
+    "preparation": "Computer preparation",
+    "estimated": "About {{minutes}} min",
+    "allSteps": "Guide steps",
+    "completed": "Completed",
+    "current": "Current step",
+    "upcoming": "Upcoming",
+    "keyboardHint": "Tip: use ← and → to move between steps.",
+    "breadcrumb": { "home": "Home", "guide": "Log collection" },
+    "labels": { "command": "Command", "commands": "Commands", "version": "Version", "size": "Download size", "file": "File", "checksum": "Checksum" },
+    "blocks": { "adb": { "title": "Android SDK Platform-Tools", "description": "The official Google package containing ADB and Fastboot for Windows.", "acknowledgment": "I downloaded ADB and can access the ZIP file." } },
+    "notices": {
+      "official": { "title": "Official download", "description": "This button points to Google's permanent download URL, which always serves the current Platform-Tools package." },
+      "menu": { "title": "Menu names may vary", "description": "The wording can differ slightly by model and system version. Use Settings search if needed." },
+      "authorization": { "title": "Check the phone screen", "description": "When asked, allow USB debugging and optionally trust this computer. The list should then show the status “device”." },
+      "terminal": { "title": "Keep this window open", "description": "The command stays active while logs are recorded. Do not close the terminal until the issue has been reproduced." },
+      "privacy": { "title": "Protect personal information", "description": "Logs and screen recordings may contain names, notifications or account details. Review files before sharing them." },
+      "saved": { "title": "Files ready", "description": "Keep the log, recording and a short description of the time the issue occurred together." }
+    },
+    "images": {
+      "adbFolder": { "alt": "Example Platform-Tools folder structure", "caption": "The extracted folder should contain adb, fastboot and support libraries." },
+      "developer": { "alt": "Phone settings showing developer options" },
+      "bugReport": { "alt": "Android bug report progress notification" }
+    },
+    "steps": {
+      "download": { "title": "Prepare your computer", "description": "Before collecting logs, download Android Debug Bridge (ADB). It lets your computer communicate securely with the device." },
+      "extract": { "title": "Extract the Platform-Tools folder", "description": "Unpack the ZIP into an easy-to-find folder before continuing.", "items": { "download": "Wait until the ZIP download is complete.", "extract": "Right-click the file and choose Extract all.", "open": "Open the extracted platform-tools folder.", "keep": "Keep this folder open for the next steps." } },
+      "developer": { "title": "Enable Developer options", "infinix": "On your Infinix, open Settings › My phone, then tap Build number seven times until XOS confirms developer mode.", "tecno": "On your TECNO, open Settings › My phone, then tap Build number seven times until HiOS confirms developer mode.", "itel": "On your itel, open Settings › My phone, then tap Build number seven times until developer mode is enabled." },
+      "usb": { "title": "Turn on USB debugging", "description": "Open Developer options and allow the computer to communicate with your device through ADB.", "items": { "open": "Go to Settings › System › Developer options.", "enable": "Turn on USB debugging.", "confirm": "Read and accept the security confirmation." } },
+      "connect": { "title": "Connect and verify the device", "description": "Use a data-capable USB cable, open a terminal inside platform-tools and run the verification command." },
+      "capture": { "title": "Start logs and screen recording", "description": "Clear old messages, start a recording and save new Android logs to a text file." },
+      "reproduce": { "title": "Reproduce the issue", "description": "With capture running, repeat the exact actions that cause the problem. Note the approximate time and what you expected to happen." },
+      "export": { "title": "Stop and copy the evidence", "description": "Press Ctrl+C in the logcat terminal, then run the commands below to finish the recording and copy it to your computer." },
+      "finish": { "title": "Review and send", "description": "Confirm that your support package contains everything needed for analysis.", "items": { "log": "The text log opens and contains recent timestamps.", "video": "The screen recording plays correctly.", "context": "Include the issue time, steps and expected result.", "disable": "Disable USB debugging after support is complete." } }
+    },
+    "mobile": {
+      "prepare": { "title": "Prepare your phone", "description": "A bug report can be large and may take several minutes to generate.", "items": { "battery": "Keep at least 30% battery.", "storage": "Reserve at least 1 GB of free storage.", "close": "Close apps containing sensitive information." } },
+      "report": { "title": "Start a bug report", "description": "In Developer options, choose Take bug report and select the interactive or full report.", "items": { "open": "Open Settings › System › Developer options.", "select": "Tap Take bug report and choose Interactive report.", "start": "Confirm to begin collecting diagnostic data." }, "info": { "title": "Can't find the option?", "description": "Search Settings for “bug report”. Some software versions place it under Developer options › Bug report." } },
+      "reproduce": { "description": "Return to the affected app and reproduce the issue while Android collects the report. Avoid opening unrelated personal content." },
+      "wait": { "title": "Wait for the report", "description": "A notification shows collection progress. Keep the phone unlocked and wait until Android says the report is ready." },
+      "share": { "title": "Share the generated report", "description": "Open the completed notification, choose Share and send the ZIP only through the support channel you trust.", "info": { "title": "Large attachment", "description": "If your email app rejects the file, upload it to your approved company drive and share a restricted link." } },
+      "finish": { "description": "Confirm that support received the report and a short description of the issue.", "success": "Your on-device diagnostic package is ready for technical analysis." }
+    }
+  },
+  "guides": { "infinix": { "pc": { "title": "Infinix computer log collection" }, "mobile": { "title": "Infinix on-device bug report" } }, "tecno": { "pc": { "title": "TECNO computer log collection" }, "mobile": { "title": "TECNO on-device bug report" } }, "itel": { "pc": { "title": "itel computer log collection" }, "mobile": { "title": "itel on-device bug report" } } },
+  "completion": { "eyebrow": "Guide complete", "title": "Your support package is ready", "description": "You completed every step. Review any sensitive information before sending the files to support.", "summary": "{{brand}} · {{method}}", "another": "Start another guide", "support": "Open {{brand}} support" }
+}

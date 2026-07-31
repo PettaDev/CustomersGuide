@@ -1,0 +1,15 @@
+{
+  "brand": "itel", "method": "mobile", "titleKey": "guides.itel.mobile.title", "estimatedMinutes": 8,
+  "steps": [
+    { "id": "prepare-phone", "titleKey": "guide.mobile.prepare.title", "descriptionKey": "guide.mobile.prepare.description", "blocks": [{ "type": "checklist", "itemKeys": ["guide.mobile.prepare.items.battery", "guide.mobile.prepare.items.storage", "guide.mobile.prepare.items.close"] }] },
+    { "id": "developer-options", "titleKey": "guide.steps.developer.title", "descriptionKey": "guide.steps.developer.itel", "blocks": [{ "type": "image", "src": "./illustrations/developer-options.svg", "altKey": "guide.images.developer.alt" }] },
+    { "id": "start-bug-report", "titleKey": "guide.mobile.report.title", "descriptionKey": "guide.mobile.report.description", "blocks": [
+      { "type": "checklist", "itemKeys": ["guide.mobile.report.items.open", "guide.mobile.report.items.select", "guide.mobile.report.items.start"] },
+      { "type": "info", "titleKey": "guide.mobile.report.info.title", "descriptionKey": "guide.mobile.report.info.description" }
+    ] },
+    { "id": "reproduce", "titleKey": "guide.steps.reproduce.title", "descriptionKey": "guide.mobile.reproduce.description", "blocks": [{ "type": "warning", "titleKey": "guide.notices.privacy.title", "descriptionKey": "guide.notices.privacy.description" }] },
+    { "id": "wait-report", "titleKey": "guide.mobile.wait.title", "descriptionKey": "guide.mobile.wait.description", "blocks": [{ "type": "image", "src": "./illustrations/bug-report.svg", "altKey": "guide.images.bugReport.alt" }] },
+    { "id": "share", "titleKey": "guide.mobile.share.title", "descriptionKey": "guide.mobile.share.description", "blocks": [{ "type": "info", "titleKey": "guide.mobile.share.info.title", "descriptionKey": "guide.mobile.share.info.description" }] },
+    { "id": "finish", "titleKey": "guide.steps.finish.title", "descriptionKey": "guide.mobile.finish.description", "blocks": [{ "type": "success", "titleKey": "guide.notices.saved.title", "descriptionKey": "guide.mobile.finish.success" }] }
+  ]
+}

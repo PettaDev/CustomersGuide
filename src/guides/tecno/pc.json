@@ -1,0 +1,38 @@
+{
+  "brand": "tecno", "method": "pc", "titleKey": "guides.tecno.pc.title", "estimatedMinutes": 15,
+  "steps": [
+    { "id": "download-adb", "eyebrowKey": "guide.preparation", "titleKey": "guide.steps.download.title", "descriptionKey": "guide.steps.download.description", "blocks": [
+      { "type": "download", "titleKey": "guide.blocks.adb.title", "descriptionKey": "guide.blocks.adb.description", "buttonKey": "actions.download", "fileName": "platform-tools-latest-windows.zip", "url": "https://dl.google.com/android/repository/platform-tools-latest-windows.zip", "version": "37.0.0", "size": "~8 MB", "icon": "adb", "releaseNotes": "https://developer.android.com/tools/releases/platform-tools", "acknowledgmentKey": "guide.blocks.adb.acknowledgment" },
+      { "type": "info", "titleKey": "guide.notices.official.title", "descriptionKey": "guide.notices.official.description" }
+    ] },
+    { "id": "extract-adb", "eyebrowKey": "guide.preparation", "titleKey": "guide.steps.extract.title", "descriptionKey": "guide.steps.extract.description", "blocks": [
+      { "type": "checklist", "itemKeys": ["guide.steps.extract.items.download", "guide.steps.extract.items.extract", "guide.steps.extract.items.open", "guide.steps.extract.items.keep"] },
+      { "type": "image", "src": "./illustrations/adb-folder.svg", "altKey": "guide.images.adbFolder.alt", "captionKey": "guide.images.adbFolder.caption" }
+    ] },
+    { "id": "developer-options", "titleKey": "guide.steps.developer.title", "descriptionKey": "guide.steps.developer.tecno", "blocks": [
+      { "type": "image", "src": "./illustrations/developer-options.svg", "altKey": "guide.images.developer.alt" },
+      { "type": "warning", "titleKey": "guide.notices.menu.title", "descriptionKey": "guide.notices.menu.description" }
+    ] },
+    { "id": "usb-debugging", "titleKey": "guide.steps.usb.title", "descriptionKey": "guide.steps.usb.description", "blocks": [
+      { "type": "checklist", "itemKeys": ["guide.steps.usb.items.open", "guide.steps.usb.items.enable", "guide.steps.usb.items.confirm"] }
+    ] },
+    { "id": "connect", "titleKey": "guide.steps.connect.title", "descriptionKey": "guide.steps.connect.description", "blocks": [
+      { "type": "code", "code": "adb devices", "labelKey": "guide.labels.command" },
+      { "type": "info", "titleKey": "guide.notices.authorization.title", "descriptionKey": "guide.notices.authorization.description" }
+    ] },
+    { "id": "start-capture", "titleKey": "guide.steps.capture.title", "descriptionKey": "guide.steps.capture.description", "blocks": [
+      { "type": "code", "code": "adb logcat -c\nstart \"Screen recording\" adb shell screenrecord /sdcard/issue.mp4 --time-limit 180\nadb logcat -v threadtime > tecno-log.txt", "labelKey": "guide.labels.commands" },
+      { "type": "info", "titleKey": "guide.notices.terminal.title", "descriptionKey": "guide.notices.terminal.description" }
+    ] },
+    { "id": "reproduce", "titleKey": "guide.steps.reproduce.title", "descriptionKey": "guide.steps.reproduce.description", "blocks": [
+      { "type": "warning", "titleKey": "guide.notices.privacy.title", "descriptionKey": "guide.notices.privacy.description" }
+    ] },
+    { "id": "export", "titleKey": "guide.steps.export.title", "descriptionKey": "guide.steps.export.description", "blocks": [
+      { "type": "code", "code": "adb shell pkill -INT screenrecord\nadb pull /sdcard/issue.mp4 ./tecno-issue.mp4\nadb shell rm /sdcard/issue.mp4", "labelKey": "guide.labels.commands" },
+      { "type": "success", "titleKey": "guide.notices.saved.title", "descriptionKey": "guide.notices.saved.description" }
+    ] },
+    { "id": "finish", "titleKey": "guide.steps.finish.title", "descriptionKey": "guide.steps.finish.description", "blocks": [
+      { "type": "checklist", "itemKeys": ["guide.steps.finish.items.log", "guide.steps.finish.items.video", "guide.steps.finish.items.context", "guide.steps.finish.items.disable"] }
+    ] }
+  ]
+}
