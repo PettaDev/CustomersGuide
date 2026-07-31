@@ -52,6 +52,17 @@ export interface ImageBlock {
   captionKey?: string
 }
 
+export interface GalleryImage {
+  src: string
+  altKey: string
+  captionKey?: string
+}
+
+export interface GalleryBlock {
+  type: 'gallery'
+  images: GalleryImage[]
+}
+
 export interface VideoBlock {
   type: 'video'
   url: string
@@ -63,7 +74,7 @@ export interface ChecklistBlock {
   itemKeys: string[]
 }
 
-export type GuideBlock = DownloadBlock | CodeBlock | NoticeBlock | ImageBlock | VideoBlock | ChecklistBlock
+export type GuideBlock = DownloadBlock | CodeBlock | NoticeBlock | ImageBlock | GalleryBlock | VideoBlock | ChecklistBlock
 
 export interface GuideStep {
   id: string

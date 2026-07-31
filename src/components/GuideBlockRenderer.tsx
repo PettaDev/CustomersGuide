@@ -68,6 +68,22 @@ export function GuideBlockRenderer({ block, acknowledged, onAcknowledged, onOpen
     )
   }
 
+  if (block.type === 'gallery') {
+    return (
+      <div className="guide-gallery">
+        {block.images.map((item) => {
+          const alt = t(item.altKey)
+          return (
+            <figure className="guide-image" key={item.src + item.altKey}>
+              <button type="button" onClick={() => onOpenImage({ src: item.src, alt })} aria-label={t('actions.openImage')}><img src={item.src} alt={alt} /><span><Maximize2 size={17} /></span></button>
+              {item.captionKey && <figcaption>{t(item.captionKey)}</figcaption>}
+            </figure>
+          )
+        })}
+      </div>
+    )
+  }
+
   if (block.type === 'video') {
     return <div className="video-frame"><iframe src={block.url} title={t(block.titleKey)} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen /></div>
   }
