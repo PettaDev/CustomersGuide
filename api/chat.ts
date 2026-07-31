@@ -2,7 +2,7 @@ import { google } from '@ai-sdk/google'
 import { APICallError, generateText, type ModelMessage } from 'ai'
 
 const SUPPORT_URL = 'https://wa.me/5511986543471'
-const MODEL = process.env.GEMINI_MODEL ?? 'gemini-2.5-flash-lite'
+const MODEL = process.env.GEMINI_MODEL ?? 'gemini-3.5-flash-lite'
 const ALLOWED_LANGUAGES = new Set(['en', 'pt-BR', 'es-419', 'zh-CN'])
 const ALLOWED_BRANDS = new Set(['infinix', 'tecno', 'itel'])
 const ALLOWED_METHODS = new Set(['pc', 'mobile'])

@@ -53,7 +53,7 @@ flowchart LR
     W <--> C["JSON guides, locales, themes, and media"]
     W --> A["Vercel Function: /api/chat"]
     A --> G["Google Gemini API"]
-    G --> M["Gemini 2.5 Flash-Lite"]
+    G --> M["Gemini 3.5 Flash-Lite"]
     W --> S["WhatsApp technical support"]
 ```
 
@@ -68,7 +68,7 @@ The guide is configuration-driven. Brand themes and guide JSON files are discove
 | Styling | Tailwind CSS, PostCSS, project-level CSS |
 | Internationalization | i18next, react-i18next |
 | Navigation | React Router with `HashRouter` |
-| AI | Vercel AI SDK, Google Generative AI, Gemini 2.5 Flash-Lite |
+| AI | Vercel AI SDK, Google Generative AI, Gemini 3.5 Flash-Lite |
 | Hosting | Vercel; optional static deployment through GitHub Pages |
 
 ## Project Structure
@@ -148,7 +148,7 @@ To enable it for a new Vercel project:
 3. Add `GOOGLE_GENERATIVE_AI_API_KEY` as a sensitive environment variable for Production and Preview.
 4. Deploy the project normally.
 
-The default model is the stable `gemini-2.5-flash-lite`, which is available in the Gemini API free tier with usage limits. Set the optional server-side `GEMINI_MODEL` environment variable to use another compatible Gemini model.
+The default model is the stable `gemini-3.5-flash-lite`, which is available in the Gemini API free tier with usage limits. Set the optional server-side `GEMINI_MODEL` environment variable to use another compatible Gemini model.
 
 The endpoint applies same-site checks, request-size limits, bounded conversation history, and input normalization. It is deliberately scoped to the documented log-capture process and escalates unsupported cases to technical support. Google may use free-tier request content to improve its products, so the assistant must not request logs, credentials, IMEI numbers, pairing codes, or other personal information.
 
