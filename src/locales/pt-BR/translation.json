@@ -564,7 +564,7 @@
       "kicker": "Cobertura de atendimento",
       "title": "País ou região",
       "count": "{{count}} mercados",
-      "recommended": "Brasil · Padrão",
+      "recommended": "Recomendado",
       "search": "Buscar por país ou código",
       "empty": "Nenhum mercado corresponde à sua busca.",
       "source": "Ver informações oficiais sobre a presença global da Transsion"

@@ -126,16 +126,15 @@ export const countries: CountryOption[] = [
 
 export const countryMap = Object.fromEntries(countries.map((item) => [item.code, item])) as Record<string, CountryOption>
 
-const displayNamesCache = new Map<LanguageCode, Intl.DisplayNames>()
+let englishDisplayNames: Intl.DisplayNames | null = null
 
-export const getCountryName = (code: string, locale: LanguageCode) => {
+export const getCountryName = (code: string) => {
   try {
-    const displayNames = displayNamesCache.get(locale) ?? new Intl.DisplayNames([locale], { type: 'region' })
-    displayNamesCache.set(locale, displayNames)
-    return displayNames.of(code) ?? code
+    englishDisplayNames ??= new Intl.DisplayNames(['en'], { type: 'region' })
+    return englishDisplayNames.of(code) ?? code
   } catch {
-    return new Intl.DisplayNames(['en'], { type: 'region' }).of(code) ?? code
+    return code
   }
 }
 
-export const getCountryFlag = (code: string) => String.fromCodePoint(...[...code].map((letter) => 127397 + letter.charCodeAt(0)))
+export const getCountryFlagUrl = (code: string) => `./flags/countries/${code.toLocaleLowerCase('en-US')}.svg`

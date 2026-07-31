@@ -564,7 +564,7 @@
       "kicker": "Couverture du service",
       "title": "Pays ou région",
       "count": "{{count}} marchés",
-      "recommended": "Brésil · Par défaut",
+      "recommended": "Recommandé",
       "search": "Rechercher par pays ou code",
       "empty": "Aucun marché ne correspond à votre recherche.",
       "source": "Voir les informations officielles sur la présence mondiale de Transsion"

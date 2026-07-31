@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from 'react'
+import { detectBrowserLocale } from '../data/browserLocale'
 import { countryMap } from '../data/countries'
 import i18n from '../i18n'
 import { neutralTheme, themeMap, themes } from '../themes'
@@ -41,10 +42,19 @@ const AppContext = createContext<AppContextValue | null>(null)
 const loadSession = (): PersistedSession => {
   try {
     const raw = localStorage.getItem(STORAGE_KEY)
-    return raw ? { ...defaultSession, ...JSON.parse(raw) } : defaultSession
+    if (raw) return { ...defaultSession, ...JSON.parse(raw) }
   } catch {
-    return defaultSession
+    // Fall through to browser locale detection when stored data is unavailable.
   }
+
+  const browserLanguages = typeof navigator === 'undefined'
+    ? []
+    : navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language]
+  const preference = detectBrowserLocale(browserLanguages)
+
+  return { ...defaultSession, ...preference }
 }
 
 export function AppProvider({ children }: { children: ReactNode }) {

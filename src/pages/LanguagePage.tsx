@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Check, ExternalLink, Globe2, MapPin, Search } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { CountryFlag } from '../components/CountryFlag'
 import { PageIntro } from '../components/PageIntro'
 import { useApp } from '../context/AppContext'
-import { countries, countryMap, COUNTRY_SOURCE_URL, getCountryFlag, getCountryName } from '../data/countries'
+import { countries, countryMap, COUNTRY_SOURCE_URL, getCountryName } from '../data/countries'
 import { languageMap } from '../data/languages'
 import type { CountryRegion } from '../types'
 
@@ -15,20 +16,19 @@ export function LanguagePage() {
   const { t } = useTranslation()
   const { session, setCountry, setLanguage, continueFromLocale } = useApp()
   const [query, setQuery] = useState('')
-  const locale = session.language ?? 'pt-BR'
   const selectedCountry = countryMap[session.countryCode] ?? countryMap.BR
   const selectedLanguage = session.language ?? selectedCountry.languages[0]
   const groupedCountries = useMemo(() => {
     const normalizedQuery = normalize(query.trim())
     const visible = countries
       .filter((item) => item.code !== 'BR')
-      .map((item) => ({ ...item, name: getCountryName(item.code, locale) }))
+      .map((item) => ({ ...item, name: getCountryName(item.code) }))
       .filter((item) => !normalizedQuery || normalize(item.name).includes(normalizedQuery) || item.code.toLocaleLowerCase().includes(normalizedQuery))
-      .sort((left, right) => left.name.localeCompare(right.name, locale))
+      .sort((left, right) => left.name.localeCompare(right.name, 'en'))
 
     return regions.map((region) => ({ region, countries: visible.filter((item) => item.region === region) }))
       .filter((group) => group.countries.length > 0)
-  }, [locale, query])
+  }, [query])
 
   const selectCountry = (countryCode: string) => {
     setQuery('')
@@ -59,8 +59,8 @@ export function LanguagePage() {
               aria-pressed={selectedCountry.code === 'BR'}
               onClick={() => selectCountry('BR')}
             >
-              <span className="country-flag" aria-hidden="true">{getCountryFlag('BR')}</span>
-              <span><small>{t('locale.country.recommended')}</small><strong>{getCountryName('BR', locale)}</strong></span>
+              <CountryFlag code="BR" large eager />
+              <span><small>{t('locale.country.recommended')}</small><strong>{getCountryName('BR')}</strong></span>
               <span className="featured-country-action">{selectedCountry.code === 'BR' ? <Check size={18} /> : <ArrowRight size={18} />}</span>
             </button>
 
@@ -86,7 +86,7 @@ export function LanguagePage() {
                           key={item.code}
                           onClick={() => selectCountry(item.code)}
                         >
-                          <span aria-hidden="true">{getCountryFlag(item.code)}</span>
+                          <CountryFlag code={item.code} />
                           <strong>{item.name}</strong>
                           <small>{item.code}</small>
                           {active ? <Check size={15} aria-hidden="true" /> : null}
@@ -106,8 +106,8 @@ export function LanguagePage() {
 
           <motion.aside className="locale-confirmation" layout aria-live="polite">
             <div className="selected-country-summary">
-              <span className="selected-country-flag" aria-hidden="true">{getCountryFlag(selectedCountry.code)}</span>
-              <div><span>{t('locale.language.selectedCountry')}</span><strong>{getCountryName(selectedCountry.code, locale)}</strong></div>
+              <CountryFlag code={selectedCountry.code} large eager />
+              <div><span>{t('locale.language.selectedCountry')}</span><strong>{getCountryName(selectedCountry.code)}</strong></div>
               <MapPin size={20} aria-hidden="true" />
             </div>
 
