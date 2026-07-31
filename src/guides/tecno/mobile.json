@@ -15,7 +15,6 @@
     { "id": "termux-setup", "titleKey": "guide.mobile.termux.title", "descriptionKey": "guide.mobile.termux.description", "blocks": [
       { "type": "checklist", "itemKeys": ["guide.mobile.termux.items.install", "guide.mobile.termux.items.open", "guide.mobile.termux.items.wait"] },
       { "type": "code", "code": "pkg install android-tools", "labelKey": "guide.labels.command" },
-      { "type": "video", "src": "./videos/termux-adb-process.mp4", "titleKey": "guide.videos.termux.title", "portrait": true },
       { "type": "info", "titleKey": "guide.mobile.termux.info.title", "descriptionKey": "guide.mobile.termux.info.description" }
     ] },
     { "id": "wireless-debugging", "titleKey": "guide.steps.wireless.title", "descriptionKey": "guide.steps.wireless.description", "blocks": [

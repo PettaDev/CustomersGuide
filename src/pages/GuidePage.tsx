@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, ArrowUp, Check, CheckCircle2, ChevronRight, Clock3, Headphones, ListChecks, LockKeyhole, RotateCcw, X } from 'lucide-react'
+import { ArrowLeft, ArrowRight, ArrowUp, Check, CheckCircle2, ChevronRight, CirclePlay, Clock3, Headphones, ListChecks, LockKeyhole, RotateCcw, X } from 'lucide-react'
 import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Footer } from '../components/Footer'
@@ -11,6 +11,7 @@ import { useApp } from '../context/AppContext'
 import { getGuide } from '../guides'
 
 const ACK_KEY = 'transsion-guide-acknowledgments-v1'
+const TERMUX_VIDEO_STEPS = new Set(['termux-setup', 'wireless-debugging', 'split-screen', 'pair-adb', 'connect-adb'])
 
 export function GuidePage() {
   const { t } = useTranslation()
@@ -40,6 +41,7 @@ export function GuidePage() {
   const requiresAcknowledgment = step?.blocks?.some((block) => block.type === 'download' && block.acknowledgmentKey) ?? false
   const canContinue = !requiresAcknowledgment || Boolean(acknowledged[ackId])
   const progress = guide ? Math.round(((session.guideStep + 1) / guide.steps.length) * 100) : 0
+  const showTermuxVideo = session.method === 'mobile' && TERMUX_VIDEO_STEPS.has(step?.id ?? '') && !finished
 
   const goTo = useCallback((index: number) => {
     if (!guide) return
@@ -105,7 +107,7 @@ export function GuidePage() {
           <div className="keyboard-hint">{t('guide.keyboardHint')}</div>
         </aside>
 
-        <main className="guide-main">
+        <main className={'guide-main' + (showTermuxVideo ? ' has-process-video' : '')}>
           <div className="guide-topline">
             <nav className="breadcrumbs" aria-label={t('guide.breadcrumb.guide')}><button type="button" onClick={() => setStage('brand')}>{t('guide.breadcrumb.home')}</button><ChevronRight size={14} /><span>{brand.name}</span><ChevronRight size={14} /><span>{t('guide.breadcrumb.guide')}</span></nav>
             <span className="step-percent">{t('wizard.stepOf', { current: session.guideStep + 1, total: guide.steps.length })} · {progress}%</span>
@@ -124,8 +126,20 @@ export function GuidePage() {
               </div>
             </motion.section>
           ) : (
-            <AnimatePresence mode="wait">
-              <motion.article key={step.id} className="guide-article" initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.26 }}>
+            <div className={'guide-step-stage' + (showTermuxVideo ? ' has-process-video' : '')}>
+              {showTermuxVideo && (
+                <aside className="persistent-guide-video" aria-label={t('guide.videos.termux.title')}>
+                  <div className="persistent-video-heading">
+                    <span><CirclePlay size={19} /></span>
+                    <div><strong>{t('guide.videos.termux.title')}</strong><small>{t('guide.videos.termux.persistent')}</small></div>
+                  </div>
+                  <div className="video-frame is-portrait">
+                    <video src="./videos/termux-adb-process.mp4" title={t('guide.videos.termux.title')} aria-label={t('guide.videos.termux.title')} controls playsInline preload="metadata" />
+                  </div>
+                </aside>
+              )}
+              <AnimatePresence mode="wait">
+                <motion.article key={step.id} className="guide-article" initial={{ opacity: 0, x: 18 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -12 }} transition={{ duration: 0.26 }}>
                 <div className="step-heading">
                   {step.eyebrowKey && <span className="eyebrow"><span />{t(step.eyebrowKey)}</span>}
                   <span className="step-index">{String(session.guideStep + 1).padStart(2, '0')}</span>
@@ -141,8 +155,9 @@ export function GuidePage() {
                   <button type="button" className="secondary-button" disabled={session.guideStep === 0} onClick={() => goTo(session.guideStep - 1)}><ArrowLeft size={17} />{t('actions.previous')}</button>
                   <button type="button" className="primary-button" disabled={!canContinue} onClick={handleNext}>{session.guideStep === guide.steps.length - 1 ? t('actions.finish') : t('actions.next')}{session.guideStep === guide.steps.length - 1 ? <Check size={17} /> : <ArrowRight size={17} />}</button>
                 </div>
-              </motion.article>
-            </AnimatePresence>
+                </motion.article>
+              </AnimatePresence>
+            </div>
           )}
         </main>
       </div>

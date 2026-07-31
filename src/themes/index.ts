@@ -17,7 +17,7 @@ export const neutralTheme: BrandTheme = {
   logo: './brandmarks/transsion.svg',
   taglineKey: 'app.subtitle',
   osName: 'Android',
-  supportUrl: '#',
+  supportUrl: 'https://wa.me/5511986543471',
   colors: {
     primary: '#5B73F2',
     primaryStrong: '#3D52CC',

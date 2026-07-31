@@ -65,7 +65,7 @@
       "downloadFiles": { "alt": "Download debuglogger folder with the collected log categories", "caption": "Download › debuglogger should contain connsyslog, mdlog1, mdlog1_config, mobilelog, netlog and file_tree.txt." }
     },
     "videos": {
-      "termux": { "title": "Complete Termux installation, pairing, connection and copy process" },
+      "termux": { "title": "Complete Termux installation, pairing, connection and copy process", "persistent": "The video continues from the same point while you move through the ADB steps." },
       "verifyFiles": { "title": "How to locate and verify the debuglogger folder in Download" }
     },
     "steps": {

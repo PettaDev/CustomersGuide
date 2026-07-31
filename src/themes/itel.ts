@@ -6,7 +6,7 @@ const theme: BrandTheme = {
   logo: './brandmarks/itel.svg',
   taglineKey: 'brands.itel.tagline',
   osName: 'itel OS',
-  supportUrl: 'https://www.itel-life.com/support/',
+  supportUrl: 'https://wa.me/5511986543471',
   colors: {
     primary: '#F04438',
     primaryStrong: '#D51D24',

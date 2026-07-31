@@ -6,7 +6,7 @@ const theme: BrandTheme = {
   logo: './brandmarks/tecno.svg',
   taglineKey: 'brands.tecno.tagline',
   osName: 'HiOS',
-  supportUrl: 'https://www.tecno-mobile.com/support/',
+  supportUrl: 'https://wa.me/5511986543471',
   colors: {
     primary: '#1479FF',
     primaryStrong: '#0058D4',

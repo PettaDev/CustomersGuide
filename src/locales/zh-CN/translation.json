@@ -47,7 +47,7 @@
       "downloadFiles": { "alt": "Download 中的 debuglogger 文件夹及采集到的日志类别", "caption": "Download › debuglogger 应包含 connsyslog、mdlog1、mdlog1_config、mobilelog、netlog 和 file_tree.txt。" }
     },
     "videos": {
-      "termux": { "title": "Termux 安装、配对、连接和复制的完整流程" },
+      "termux": { "title": "Termux 安装、配对、连接和复制的完整流程", "persistent": "在 ADB 各步骤之间切换时，视频会从同一位置继续播放。" },
       "verifyFiles": { "title": "如何在 Download 中找到并检查 debuglogger 文件夹" }
     },
     "steps": {

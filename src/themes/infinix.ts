@@ -6,7 +6,7 @@ const theme: BrandTheme = {
   logo: './brandmarks/infinix.svg',
   taglineKey: 'brands.infinix.tagline',
   osName: 'XOS',
-  supportUrl: 'https://www.meuinfinix.com.br/suporte',
+  supportUrl: 'https://wa.me/5511986543471',
   colors: {
     primary: '#28D87B',
     primaryStrong: '#0E9F5B',

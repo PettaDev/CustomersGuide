@@ -47,7 +47,7 @@
       "downloadFiles": { "alt": "Pasta Download debuglogger com as categorias de logs coletadas", "caption": "A pasta Download › debuglogger deve conter connsyslog, mdlog1, mdlog1_config, mobilelog, netlog e file_tree.txt." }
     },
     "videos": {
-      "termux": { "title": "Processo completo de instalação, pareamento, conexão e cópia pelo Termux" },
+      "termux": { "title": "Processo completo de instalação, pareamento, conexão e cópia pelo Termux", "persistent": "O vídeo continua do mesmo ponto enquanto você avança pelas etapas do ADB." },
       "verifyFiles": { "title": "Como localizar e verificar a pasta debuglogger em Download" }
     },
     "steps": {
