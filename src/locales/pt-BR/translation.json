@@ -5,6 +5,7 @@
     "badge": "Ferramentas de suporte Transsion",
     "version": "Versão 1.0.0",
     "copyright": "© 2026 Transsion Holdings. Experiência de suporte.",
+    "developer": "Desenvolvido por Gustavo Petta (TFAE Product Quality After-sales Test Engineer | Brazil)",
     "contact": "Suporte técnico"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "Página do aplicativo Termux na Google Play, de Fredrik Fornwall",
         "caption": "Na Google Play, confirme o nome Termux e o desenvolvedor Fredrik Fornwall antes de instalar."
+      },
+      "termuxSplitMenu": {
+        "alt": "Tela de aplicativos recentes mostrando a opção Tela dividida para Configurações",
+        "caption": "Abra os aplicativos recentes, acesse o menu do cartão Configurações e selecione Tela dividida."
+      },
+      "termuxSplitReady": {
+        "alt": "Configurações e Termux lado a lado em tela dividida",
+        "caption": "Mantenha a Depuração sem fio visível em Configurações enquanto digita os comandos ADB no Termux."
+      },
+      "termuxFloatingMenu": {
+        "alt": "Tela de aplicativos recentes com o ícone de janela flutuante destacado no Termux",
+        "caption": "Se a tela dividida não estiver disponível, toque no ícone de janela flutuante do cartão Termux."
+      },
+      "termuxFloatingReady": {
+        "alt": "Janela flutuante do Termux exibida sobre Configurações",
+        "caption": "Mantenha o Termux flutuando sobre a Depuração sem fio até concluir o pareamento e a conexão."
       },
       "usbDebugging": {
         "alt": "Opções do desenvolvedor com Depuração USB e confirmação destacadas",
@@ -385,7 +402,8 @@
           "android": "Confirme que o aparelho usa Android 11 ou posterior.",
           "battery": "Mantenha pelo menos 30% de bateria.",
           "storage": "Reserve ao menos 1 GB de armazenamento livre.",
-          "wifi": "Conecte-se a uma rede Wi-Fi confiável e permaneça nela durante todo o processo."
+          "wifi": "Conecte-se a uma rede Wi-Fi confiável e permaneça nela durante todo o processo.",
+          "multitasking": "Confirme que o aparelho oferece Tela dividida ou Janela flutuante. Pelo menos uma das duas opções é obrigatória."
         },
         "compatibility": {
           "title": "Compatibilidade necessária",

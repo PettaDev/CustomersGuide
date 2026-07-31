@@ -5,7 +5,7 @@
   "estimatedMinutes": 25,
   "steps": [
     { "id": "prepare-phone", "titleKey": "guide.mobile.prepare.title", "descriptionKey": "guide.mobile.prepare.description", "blocks": [
-      { "type": "checklist", "itemKeys": ["guide.mobile.prepare.items.android", "guide.mobile.prepare.items.battery", "guide.mobile.prepare.items.storage", "guide.mobile.prepare.items.wifi"] },
+      { "type": "checklist", "itemKeys": ["guide.mobile.prepare.items.android", "guide.mobile.prepare.items.battery", "guide.mobile.prepare.items.storage", "guide.mobile.prepare.items.wifi", "guide.mobile.prepare.items.multitasking"] },
       { "type": "info", "titleKey": "guide.mobile.prepare.compatibility.title", "descriptionKey": "guide.mobile.prepare.compatibility.description" }
     ] },
     { "id": "developer-options", "titleKey": "guide.steps.developer.title", "descriptionKey": "guide.steps.developer.tecno", "blocks": [
@@ -24,6 +24,12 @@
     ] },
     { "id": "split-screen", "titleKey": "guide.mobile.split.title", "descriptionKey": "guide.mobile.split.description", "blocks": [
       { "type": "checklist", "itemKeys": ["guide.mobile.split.items.settings", "guide.mobile.split.items.termux", "guide.mobile.split.items.keep"] },
+      { "type": "gallery", "images": [
+        { "src": "./screenshots/termux/termux-split-screen-menu.png", "altKey": "guide.images.termuxSplitMenu.alt", "captionKey": "guide.images.termuxSplitMenu.caption" },
+        { "src": "./screenshots/termux/termux-split-screen-settings.jpg", "altKey": "guide.images.termuxSplitReady.alt", "captionKey": "guide.images.termuxSplitReady.caption" },
+        { "src": "./screenshots/termux/termux-floating-window-menu.png", "altKey": "guide.images.termuxFloatingMenu.alt", "captionKey": "guide.images.termuxFloatingMenu.caption" },
+        { "src": "./screenshots/termux/termux-floating-window-settings.png", "altKey": "guide.images.termuxFloatingReady.alt", "captionKey": "guide.images.termuxFloatingReady.caption" }
+      ] },
       { "type": "warning", "titleKey": "guide.mobile.split.warning.title", "descriptionKey": "guide.mobile.split.warning.description" }
     ] },
     { "id": "pair-adb", "titleKey": "guide.mobile.pair.title", "descriptionKey": "guide.mobile.pair.description", "blocks": [

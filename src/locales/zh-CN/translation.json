@@ -5,6 +5,7 @@
     "badge": "传音支持工具",
     "version": "版本 1.0.0",
     "copyright": "© 2026 传音控股。支持体验。",
+    "developer": "开发者：Gustavo Petta（TFAE Product Quality After-sales Test Engineer | Brazil）",
     "contact": "技术支持"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "Google Play 上由 Fredrik Fornwall 发布的 Termux 应用页面",
         "caption": "安装前，请在 Google Play 中确认应用名称为 Termux，开发者为 Fredrik Fornwall。"
+      },
+      "termuxSplitMenu": {
+        "alt": "最近任务菜单中显示设置应用的分屏选项",
+        "caption": "打开最近任务，打开设置应用卡片菜单，然后选择分屏。"
+      },
+      "termuxSplitReady": {
+        "alt": "设置和 Termux 在分屏中并排显示",
+        "caption": "在 Termux 中输入 ADB 命令时，保持设置中的无线调试页面可见。"
+      },
+      "termuxFloatingMenu": {
+        "alt": "最近任务菜单中突出显示 Termux 的浮动窗口图标",
+        "caption": "如果无法使用分屏，请点击 Termux 卡片上的浮动窗口图标。"
+      },
+      "termuxFloatingReady": {
+        "alt": "Termux 浮动窗口显示在设置上方",
+        "caption": "在配对和连接完成前，让 Termux 浮动显示在无线调试页面上方。"
       },
       "usbDebugging": {
         "alt": "开发者选项中的 USB 调试及安全确认",
@@ -385,7 +402,8 @@
           "android": "确认设备运行 Android 11 或更高版本。",
           "battery": "保持至少 30% 电量。",
           "storage": "预留至少 1 GB 可用存储空间。",
-          "wifi": "连接到可信的 Wi-Fi 网络，并在整个流程中保持连接。"
+          "wifi": "连接到可信的 Wi-Fi 网络，并在整个流程中保持连接。",
+          "multitasking": "确认设备支持分屏或浮动窗口。这两项功能中至少必须具备一项。"
         },
         "compatibility": {
           "title": "兼容性要求",

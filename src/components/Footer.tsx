@@ -1,4 +1,4 @@
-import { ExternalLink, Headphones } from 'lucide-react'
+import { Code2, ExternalLink, Headphones } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useApp } from '../context/AppContext'
 import { BrandLogo } from './BrandLogo'
@@ -15,7 +15,10 @@ export function Footer() {
           <div><strong>{t('app.title')}</strong><span>{t('app.version')}</span></div>
         </div>
         <div className="footer-meta">
-          <span>{t('app.copyright')}</span>
+          <div className="footer-credits">
+            <span>{t('app.copyright')}</span>
+            <strong><Code2 size={14} aria-hidden="true" />{t('app.developer')}</strong>
+          </div>
           {brand && (
             <a href={brand.supportUrl} target="_blank" rel="noreferrer"><Headphones size={16} />{t('app.contact')}<ExternalLink size={13} /></a>
           )}

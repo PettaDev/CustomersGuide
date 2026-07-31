@@ -5,6 +5,7 @@
     "badge": "Transsion support tools",
     "version": "Version 1.0.0",
     "copyright": "© 2026 Transsion Holdings. Support experience.",
+    "developer": "Developed by Gustavo Petta (TFAE Product Quality After-sales Test Engineer | Brazil)",
     "contact": "Technical support"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "Termux app page on Google Play by Fredrik Fornwall",
         "caption": "On Google Play, confirm the Termux name and Fredrik Fornwall as the developer before installing."
+      },
+      "termuxSplitMenu": {
+        "alt": "Recent apps menu showing the Split screen option for Settings",
+        "caption": "Open recent apps, open the Settings card menu and choose Split screen."
+      },
+      "termuxSplitReady": {
+        "alt": "Settings and Termux side by side in split screen",
+        "caption": "Keep Wireless debugging visible in Settings while entering ADB commands in Termux."
+      },
+      "termuxFloatingMenu": {
+        "alt": "Recent apps menu with the floating window icon highlighted for Termux",
+        "caption": "If split screen is unavailable, tap the floating-window icon on the Termux card."
+      },
+      "termuxFloatingReady": {
+        "alt": "Termux floating window displayed over Settings",
+        "caption": "Keep Termux floating over Wireless debugging until pairing and connection are complete."
       },
       "usbDebugging": {
         "alt": "Developer options with USB debugging and its confirmation highlighted",
@@ -385,7 +402,8 @@
           "android": "Confirm that the device runs Android 11 or later.",
           "battery": "Keep at least 30% battery.",
           "storage": "Reserve at least 1 GB of free storage.",
-          "wifi": "Connect to a trusted Wi-Fi network and stay on it throughout the process."
+          "wifi": "Connect to a trusted Wi-Fi network and stay on it throughout the process.",
+          "multitasking": "Confirm that the device supports either Split screen or Floating window. At least one of the two is required."
         },
         "compatibility": {
           "title": "Required compatibility",

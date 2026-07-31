@@ -45,7 +45,7 @@ The PC flow covers Android Platform Tools installation, Developer options, USB d
 
 ### Termux + Wireless ADB
 
-The mobile-only flow covers Termux installation, `android-tools`, split-screen operation, temporary wireless pairing credentials, the distinct pairing and connection ports, log export to `Download`, and file verification. It is intended for Android 11 or later and does not require a computer or USB debugging.
+The mobile-only flow covers Termux installation, `android-tools`, split-screen or floating-window operation, temporary wireless pairing credentials, the distinct pairing and connection ports, log export to `Download`, and file verification. It requires Android 11 or later plus support for at least one multitasking mode (split screen or floating window), and does not require a computer or USB debugging.
 
 ## Architecture
 

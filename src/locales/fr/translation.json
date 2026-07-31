@@ -5,6 +5,7 @@
     "badge": "Outils d’assistance Transsion",
     "version": "Version 1.0.0",
     "copyright": "© 2026 Transsion Holdings. Expérience d’assistance.",
+    "developer": "Développé par Gustavo Petta (TFAE Product Quality After-sales Test Engineer | Brazil)",
     "contact": "Support technique"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "Page de l'application Termux sur Google Play par Fredrik Fornwall",
         "caption": "Sur Google Play, vérifiez le nom Termux et le développeur Fredrik Fornwall avant de l'installer."
+      },
+      "termuxSplitMenu": {
+        "alt": "Menu des applications récentes affichant l'option Écran partagé pour Paramètres",
+        "caption": "Ouvrez les applications récentes, le menu de la carte Paramètres, puis choisissez Écran partagé."
+      },
+      "termuxSplitReady": {
+        "alt": "Paramètres et Termux côte à côte en écran partagé",
+        "caption": "Gardez le Débogage sans fil visible pendant que vous saisissez les commandes ADB dans Termux."
+      },
+      "termuxFloatingMenu": {
+        "alt": "Menu des applications récentes avec l'icône de fenêtre flottante mise en évidence pour Termux",
+        "caption": "Si l'écran partagé n'est pas disponible, appuyez sur l'icône de fenêtre flottante de Termux."
+      },
+      "termuxFloatingReady": {
+        "alt": "Fenêtre flottante de Termux affichée au-dessus de Paramètres",
+        "caption": "Gardez Termux au-dessus du Débogage sans fil jusqu'à la fin de l'appairage et de la connexion."
       },
       "usbDebugging": {
         "alt": "Options pour les développeurs avec le débogage USB et sa confirmation mis en surbrillance",
@@ -385,7 +402,8 @@
           "android": "Confirmez que l'appareil exécute Android 11 ou une version ultérieure.",
           "battery": "Maintenez un niveau de batterie d'au moins 30 %.",
           "storage": "Réservez au moins 1 Go d'espace de stockage libre.",
-          "wifi": "Connectez-vous à un réseau Wi-Fi de confiance et restez-y connecté pendant toute la procédure."
+          "wifi": "Connectez-vous à un réseau Wi-Fi de confiance et restez-y connecté pendant toute la procédure.",
+          "multitasking": "Vérifiez que l'appareil prend en charge l'Écran partagé ou la Fenêtre flottante. Au moins une de ces options est obligatoire."
         },
         "compatibility": {
           "title": "Compatibilité requise",

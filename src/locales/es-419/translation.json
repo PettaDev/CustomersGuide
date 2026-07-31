@@ -5,6 +5,7 @@
     "badge": "Herramientas de soporte Transsion",
     "version": "Versión 1.0.0",
     "copyright": "© 2026 Transsion Holdings. Experiencia de soporte.",
+    "developer": "Desarrollado por Gustavo Petta (TFAE Product Quality After-sales Test Engineer | Brazil)",
     "contact": "Soporte técnico"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "Página de la aplicación Termux en Google Play, de Fredrik Fornwall",
         "caption": "En Google Play, confirma que el nombre sea Termux y que el desarrollador sea Fredrik Fornwall antes de instalar."
+      },
+      "termuxSplitMenu": {
+        "alt": "Menú de aplicaciones recientes con la opción Pantalla dividida para Configuración",
+        "caption": "Abre las aplicaciones recientes, abre el menú de Configuración y elige Pantalla dividida."
+      },
+      "termuxSplitReady": {
+        "alt": "Configuración y Termux lado a lado en pantalla dividida",
+        "caption": "Mantén visible la Depuración inalámbrica mientras ingresas los comandos ADB en Termux."
+      },
+      "termuxFloatingMenu": {
+        "alt": "Menú de aplicaciones recientes con el ícono de ventana flotante resaltado en Termux",
+        "caption": "Si la pantalla dividida no está disponible, toca el ícono de ventana flotante de Termux."
+      },
+      "termuxFloatingReady": {
+        "alt": "Ventana flotante de Termux sobre Configuración",
+        "caption": "Mantén Termux flotando sobre la Depuración inalámbrica hasta terminar la vinculación y la conexión."
       },
       "usbDebugging": {
         "alt": "Opciones de desarrollador con Depuración USB y su confirmación resaltadas",
@@ -385,7 +402,8 @@
           "android": "Confirma que el dispositivo use Android 11 o una versión posterior.",
           "battery": "Mantén al menos 30% de batería.",
           "storage": "Reserva al menos 1 GB de almacenamiento libre.",
-          "wifi": "Conéctate a una red Wi-Fi confiable y permanece en ella durante todo el proceso."
+          "wifi": "Conéctate a una red Wi-Fi confiable y permanece en ella durante todo el proceso.",
+          "multitasking": "Confirma que el dispositivo admita Pantalla dividida o Ventana flotante. Al menos una de las dos opciones es obligatoria."
         },
         "compatibility": {
           "title": "Compatibilidad necesaria",

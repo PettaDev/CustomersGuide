@@ -212,8 +212,11 @@ html[dir="rtl"] .locale-continue > svg { transform: rotate(180deg); }
 .footer-logo { width: 74px; height: 28px; object-fit: contain; object-position: left; }
 .footer-brand div { padding-left: 16px; border-left: 1px solid var(--border); display: flex; flex-direction: column; gap: 3px; }
 .footer-brand strong { font-size: .76rem; }
-.footer-brand span, .footer-meta > span { color: var(--text-muted); font-size: .68rem; }
-.footer-meta { display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
+.footer-brand span, .footer-credits > span { color: var(--text-muted); font-size: .68rem; }
+.footer-meta { min-width: 0; display: flex; align-items: center; justify-content: flex-end; gap: 18px; }
+.footer-credits { min-width: 0; display: flex; align-items: flex-end; flex-direction: column; gap: 5px; text-align: right; }
+.footer-credits strong { display: inline-flex; align-items: center; justify-content: flex-end; gap: 6px; color: var(--text-soft); font-size: .66rem; font-weight: 650; line-height: 1.4; }
+.footer-credits svg { flex: 0 0 auto; color: var(--brand-primary-strong); }
 .footer-meta a { display: inline-flex; align-items: center; gap: 6px; color: var(--text-soft); font-size: .7rem; font-weight: 600; }
 .footer-meta a:hover { color: var(--brand-primary); }
 
@@ -390,7 +393,7 @@ html[dir="rtl"] .locale-continue > svg { transform: rotate(180deg); }
   .country-locale-layout { grid-template-columns: minmax(0, 1fr) 320px; }
   .guide-layout { grid-template-columns: 270px minmax(0, 1fr); }
   .guide-main { padding-left: 42px; padding-right: 42px; }
-  .footer-meta > span { display: none; }
+  .footer-credits > span { display: none; }
 }
 
 @media (max-width: 1200px) {
@@ -451,7 +454,8 @@ html[dir="rtl"] .locale-continue > svg { transform: rotate(180deg); }
   .method-grid { grid-template-columns: 1fr; }
   .method-card { min-height: 285px; }
   .footer-inner { padding: 24px 18px; flex-direction: column; align-items: flex-start; }
-  .footer-meta { width: 100%; justify-content: space-between; }
+  .footer-meta { width: 100%; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+  .footer-credits { width: 100%; order: 3; padding-top: 13px; align-items: flex-start; border-top: 1px solid var(--border); text-align: left; }
   .footer-meta .language-picker { margin-left: auto; }
   .guide-main { padding: 22px 17px 60px; }
   .guide-main.has-process-video { padding-left: 17px; padding-right: 17px; }

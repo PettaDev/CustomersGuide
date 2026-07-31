@@ -5,6 +5,7 @@
     "badge": "أدوات دعم Transsion",
     "version": "الإصدار 1.0.0",
     "copyright": "© 2026 Transsion Holdings. تجربة الدعم.",
+    "developer": "طوّره Gustavo Petta (TFAE Product Quality After-sales Test Engineer | Brazil)",
     "contact": "الدعم الفني"
   },
   "languages": {
@@ -192,6 +193,22 @@
       "termuxPlayStore": {
         "alt": "صفحة تطبيق Termux على Google Play بواسطة Fredrik Fornwall",
         "caption": "على Google Play، تأكد من اسم Termux و Fredrik Fornwall كَمطور قبل التثبيت."
+      },
+      "termuxSplitMenu": {
+        "alt": "قائمة التطبيقات الحديثة تعرض خيار تقسيم الشاشة لتطبيق الإعدادات",
+        "caption": "افتح التطبيقات الحديثة، ثم قائمة بطاقة الإعدادات، واختر تقسيم الشاشة."
+      },
+      "termuxSplitReady": {
+        "alt": "الإعدادات وTermux جنباً إلى جنب في وضع تقسيم الشاشة",
+        "caption": "أبقِ التصحيح اللاسلكي ظاهراً أثناء إدخال أوامر ADB في Termux."
+      },
+      "termuxFloatingMenu": {
+        "alt": "قائمة التطبيقات الحديثة مع تمييز رمز النافذة العائمة لتطبيق Termux",
+        "caption": "إذا لم يتوفر تقسيم الشاشة، فانقر على رمز النافذة العائمة في بطاقة Termux."
+      },
+      "termuxFloatingReady": {
+        "alt": "نافذة Termux العائمة معروضة فوق الإعدادات",
+        "caption": "أبقِ Termux عائماً فوق التصحيح اللاسلكي حتى اكتمال الاقتران والاتصال."
       },
       "usbDebugging": {
         "alt": "خيارات المطور مع تصحيح أخطاء USB وتأكيدها محددة",
@@ -385,7 +402,8 @@
           "android": "تأكد من أن الجهاز يعمل بنظام Android 11 أو أحدث.",
           "battery": "حافظ على مستوى بطارية لا يقل عن 30%.",
           "storage": "قم بتوفير ما لا يقل عن 1 جيجابايت من المساحة الفارغة.",
-          "wifi": "اتصل بششبكة Wi-Fi موثوقة وابق متصلاً بها طوال العملية."
+          "wifi": "اتصل بشبكة Wi-Fi موثوقة وابق متصلاً بها طوال العملية.",
+          "multitasking": "تأكد من أن الجهاز يدعم تقسيم الشاشة أو النافذة العائمة. يجب توفر خيار واحد منهما على الأقل."
         },
         "compatibility": {
           "title": "التوافق المطلوب",
