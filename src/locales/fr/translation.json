@@ -1,10 +1,10 @@
 {
   "app": {
-    "title": "Android Log Guide",
-    "subtitle": "Guided diagnostics for Transsion devices",
-    "badge": "Transsion support tools",
+    "title": "Guide des journaux Android",
+    "subtitle": "Diagnostic guidé pour les appareils Transsion",
+    "badge": "Outils d’assistance Transsion",
     "version": "Version 1.0.0",
-    "copyright": "© 2026 Transsion Holdings. Support experience.",
+    "copyright": "© 2026 Transsion Holdings. Expérience d’assistance.",
     "contact": "Support technique"
   },
   "languages": {
